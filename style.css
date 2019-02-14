@@ -1,0 +1,56 @@
+body {
+	font-family: Consolas;
+}
+
+.turing_tape {
+	display: block;
+} 
+
+.turing_frame {
+	margin: auto;
+    width: 90%;
+	border: 1px solid #444;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.turing_table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-family: Consolas;
+	margin: 8px;
+}
+
+.turing_table th, td {
+	border: 1px solid black;
+	padding: 6px;
+	text-align: center;
+}
+
+.cell {
+	border: none;
+	border-color: transparent;
+	font-family: Consolas;
+	padding: 6px;
+}
+
+.plain_text {
+	font-family: Consolas;
+}
+
+.cell_markup {
+	border: none;
+	vertical-align: top;
+	text-align: left;
+}
+
+.program_header {
+	font: bold 18px Consolas;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	margin-bottom: 16px;
+	border: none;
+	border-color: transparent;
+}
