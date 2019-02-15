@@ -8,15 +8,15 @@
 	<body>
 
     <div class="header">
-        <img height=100% align="left" src="/logo.png" onclick="window.location.href = '/'"/>
+        <img style="cursor:pointer" height=100% align="left" src="/logo.png" onclick="window.location.href = '/'"/>
         <table>
             </tr>
-                <td class="header_cell">Машина<br>Тьюринга</td>
-                <td class="header_cell">Машина<br>Поста</td>
-                <td class="header_cell">Игра<br>Жизнь</td>
-                <td class="header_cell">Муравей<br>Лэнгтона</td>
-                <td class="header_cell">Brain<br>Fuck</td>
-                <td class="header_cell">Ещё<br>автоматы</td>
+                <td class="header_cell" onclick="window.location.href = 'page_fsm.php?fsm=turing'" >Машина<br>Тьюринга</td>
+                <td class="header_cell" onclick="window.location.href = '#'" >Машина<br>Поста</td>
+                <td class="header_cell" onclick="window.location.href = '#'" >Игра<br>Жизнь</td>
+                <td class="header_cell" onclick="window.location.href = '#'" >Муравей<br>Лэнгтона</td>
+                <td class="header_cell" onclick="window.location.href = '#'" >Brain<br>Fuck</td>
+                <td class="header_cell" onclick="window.location.href = '#'" >Ещё<br>автоматы</td>
                 <td class="header_cell_user" id="header_cell_user"> <?php include 'user_info.php' ?> </td>
             </tr>
         </table>

@@ -43,8 +43,8 @@ input[type=password] {
 
 
 .header {
-	width: 85%;
-	height: 12mm;
+	width: 90%;
+	height: 14mm;
 	margin: auto;
 	border-radius: 0px 0px 3mm 3mm;
 	text-align: center;
@@ -97,7 +97,7 @@ input[type=password] {
     font-weight: bold;
 }
 
-.header_cell_user {
+#header_cell_user {
     width: 100%;
     position: unset;
     text-align: right;
@@ -106,10 +106,23 @@ input[type=password] {
     padding-top: 0px;
 	margin: 0px;
 	padding: 0px;
+	cursor: pointer;
+}
+/*
+#header_cell_user:hover {
+	background-color: #668CAF;
+	color: #FFFFFF;
 }
 
+#header_cell_user:active {
+	background-color: #003D63;
+	color: #DBDEE6;
+}
+*/
+
 .header_cell {
-    min-width: 64px;
+	min-width: 64px;
+	height: 100%;
 	cursor: default;
 	border: none;
 	padding-top: 0;
@@ -118,7 +131,6 @@ input[type=password] {
 	vertical-align: center;
 	color: #EAEAF4;
 }
-
 .header_cell:hover {
 	background-color: #668CAF;
 	color: #FFFFFF;
@@ -135,22 +147,20 @@ input[type=password] {
     border: none;
 	box-shadow: 0 1px 7px rgba(0,0,0,0.6);
     border-radius: 2.5mm 2.5mm;
-    position: unset;
-    padding: 10px;
+    position: relative;
+    padding: 6px;
 }
 
 .button:hover {
     background-color: #EAEAF4;
-    margin-top: 10px;
-	box-shadow: 0 0px 7px rgba(0,0,0,0.6);
-    margin-bottom: 6px;
+	box-shadow: 0 2px 7px rgba(0,0,0,0.6);
+	top: 1px;
 }
 
 .button:active {
     background-color: #DBDEE6;
-    margin-top: 12px;
 	box-shadow: 0 0px 4px rgba(0,0,0,0.7);
-    margin-bottom: 4px;
+	top: 5px;
 }
 
 body {
@@ -165,8 +175,8 @@ body {
 
 .turing_frame {
 	margin: auto;
-    width: 80%;
-	border: 1px solid #333333;
+    width: 90%;
+	border: 1px solid #DBDEE6;
 	background-color: #fff;
 	border-radius: 5px;
 }
