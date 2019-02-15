@@ -18,5 +18,18 @@ $('#auth').submit(function() {
         return false;
     }
 
+    e.preventDefault();
+    $.ajax({
+      url: "sendOrderForm.php",
+      type: "POST",
+      data: $('#osForm').serialize(),
+      success: function(response) {
+        //обработка успешной отправки
+      },
+      error: function(response) {
+        //обработка ошибок при отправке
+     }
+    });
+
 	return true;
 });
