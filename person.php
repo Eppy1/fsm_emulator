@@ -25,6 +25,10 @@
     }
 ?>
 
+<form action="exit.php"  method="post">
+    <input class="button" type="submit" value="Выход">
+</form>
+
 </div>
 
 <?php include 'footer.php' ?>

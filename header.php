@@ -38,7 +38,7 @@
             <center>
             <p><input name="login" type="text" placeholder="Логин или email...">
             <p><input name="pword" type="password" placeholder="Пароль...">
-			<p><input id="btn class="button" name="confirm" type= "submit" value = "Вход"></p>
+			<p><input id="btn" class="button" name="confirm" type= "submit" value = "Вход"></p>
 			<p style='color:#a03' id='auth_alert_txt'></p>
             <p> <a href="page_forgot_password.php">Забыли пароль?</a><br>
                 <a href="page_reg.php">Ещё нет аккаунта?</a></p>
