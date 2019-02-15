@@ -23,7 +23,14 @@
 
     </div>
     
-    <div id="wrap"></div>
+    <script>
+        function hihide() {
+            document.getElementById('auth_popup').style.display = "none";
+            document.getElementById('wrap').style.display = "none";
+        }
+    </script>
+
+    <div id="wrap" onClick="hihide()"></div>
 
     <div id="auth_popup">
         <center><h2>Вход</h2></center>
