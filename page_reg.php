@@ -18,7 +18,7 @@
 		<p id='alert_txt'>...</p>
 		<p><label><input name="confirm" type="checkbox" value=""> Я соглашаюсь с <a href="#">правилами</a></label></p>
 
-		<input name="register" type="submit" value="Регистрация">
+		<input class="button" name="register" type="submit" value="Регистрация">
 	</form>
     </center>        
     

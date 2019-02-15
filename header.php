@@ -8,7 +8,7 @@
 	<body>
 
     <div class="header">
-        <img height=100% align="left" src="/logo.png"/>
+        <img height=100% align="left" src="/logo.png" onclick="window.location.href = '/'"/>
         <table>
             </tr>
                 <td class="header_cell">Машина<br>Тьюринга</td>
@@ -40,7 +40,7 @@
             <p><input name="pword" type="password" placeholder="Пароль...">
 			<p><input id="btn class="button" name="confirm" type= "submit" value = "Вход"></p>
 			<p style='color:#a03' id='auth_alert_txt'></p>
-            <p> <a href="#">Забыли пароль?</a><br>
+            <p> <a href="page_forgot_password.php">Забыли пароль?</a><br>
                 <a href="page_reg.php">Ещё нет аккаунта?</a></p>
             </center>
         </form>
