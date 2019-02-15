@@ -12,15 +12,14 @@
             $md5email = md5($email . $pword);
 
             $token = md5($login . round(microtime(true) * 1000));
-            echo $token;
 
             $sql_q = "INSERT INTO `users` (login, email, md5_email, md5_login, token) VALUES ('{$login}','{$email}', '{$md5email}', '{$md5login}', '{$token}')";
             $res=mysqli_query($connect,$sql_q);
             if($res){
                 setcookie("fsmemutoken", $token, time()+604800*50);
 
-                //header("Location: index.php");
-                //die();
+                header("Location: index.php");
+                die();
             }
             else {
                 echo "Не удалось добавить информацию";

@@ -1,5 +1,4 @@
 <?php
-
     $connect=mysqli_connect('localhost', 'root', '', 'fsm');
     $login=$_POST['login'];
     $pword=$_POST['pword'];
@@ -10,6 +9,8 @@
 
     if($num == 0) echo 'Такого пользователя не знаем';
     else {
-        echo 'Hello, '. $query->fetch_assoc()['login'].'!';
+        $token = md5($login . round(microtime(true) * 1000));
+        setcookie("fsmemutoken", $token, time()+604800*50);
+        mysqli_query($connect,"UPDATE `users` SET token='{$token}' WHERE MD5_login='{$md5}' OR MD5_email='{$md5}'");
     }
 ?>

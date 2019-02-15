@@ -1,3 +1,12 @@
+<script>
+
+    function showAuth() {
+        document.getElementById('auth_popup').style.display = "block";
+        document.getElementById('wrap').style.display = "block";
+    }
+
+</script>
+
 <?php
     $username = 'GUEST';
 
@@ -9,7 +18,7 @@
 
     if($username == 'GUEST') {
         echo '<a class=\'white_link\' href=\'page_reg.php\'>Регистрация&nbsp;</a><br>';
-        echo '<a class=\'white_link\' href=\'#\'>Вход&nbsp;</a>';
+        echo '<a class=\'white_link\' href=\'#\'onclick=\'showAuth();\'>Вход&nbsp;</a>';
     } else {
         echo $username. "&nbsp;";
         echo "<img class=\"avatar\" align=\"middle\" src=\"ava_default.png\"/>";

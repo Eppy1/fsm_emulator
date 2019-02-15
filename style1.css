@@ -1,3 +1,46 @@
+input {
+    font: 14px Consolas;
+}
+
+input[type=text] {
+    border: 1px solid #888;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input[type=password] {
+    border: 1px solid #888;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#auth_popup {
+    display: none;
+    width: 30%;
+	box-shadow: 0 0px 15px rgba(0,0,0,0.4);
+	margin-left: 32.5%;
+	margin-top: 15;
+	background-color: #FFFFFF;
+	position: absolute;
+	z-index: 100;
+	border-radius: 3mm;
+	padding: 2.5%;
+}
+
+#wrap{
+    display: none;
+    opacity: 0.6;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: rgba(1, 1, 1, 0.725);
+    z-index: 99;
+    overflow: auto;
+}
+
 
 .header {
 	width: 85%;
@@ -93,6 +136,7 @@
 	box-shadow: 0 1px 7px rgba(0,0,0,0.6);
     border-radius: 2.5mm 2.5mm;
     position: unset;
+    padding: 10px;
 }
 
 .button:hover {
