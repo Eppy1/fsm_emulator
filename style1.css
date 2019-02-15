@@ -1,0 +1,169 @@
+
+.header {
+	width: 85%;
+	height: 12mm;
+	margin: auto;
+	border-radius: 0px 0px 3mm 3mm;
+	text-align: center;
+	background: #4e73a0;
+	color: white;
+	box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+	position: relative;
+	z-index: 1;
+	margin-top: -8px;
+}
+
+.avatar {
+    height: 10mm;
+    width: 10mm;
+    border: 2px solid #EAEAF4;
+    border-radius: 2.5mm;
+}
+
+.content {
+	width: 80%;
+	box-shadow: 0 0px 7px rgba(0,0,0,0.3);
+	margin: auto;
+	background-color: #FFFFFF;
+	padding: 2.5%;
+	padding-top: 16mm;
+	padding-bottom: 10mm;
+	margin-top: -12mm;
+	position: unset;
+	z-index: -1;
+	border-radius: 0px 0px 3mm 3mm;
+}
+
+.footer {
+	margin: auto;
+	margin-top: 8mm; 
+	text-align: center;
+	color: #545454;
+}
+
+.white_link {
+    font-size: 4mm;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.white_link:hover {
+    text-decoration: underline;
+}
+.white_link:active {
+    font-weight: bold;
+}
+
+.header_cell_user {
+    width: 100%;
+    position: unset;
+    text-align: right;
+    border: none; 
+    color: #EAEAF4;
+    padding-top: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.header_cell {
+    min-width: 64px;
+	cursor: default;
+	border: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin: 0%;
+	vertical-align: center;
+	color: #EAEAF4;
+}
+
+.header_cell:hover {
+	background-color: #668CAF;
+	color: #FFFFFF;
+}
+
+.header_cell:active {
+	background-color: #003D63;
+	color: #DBDEE6;
+}
+
+.button {
+    margin: 8px;
+    background-color: #DBDEE6;
+    border: none;
+	box-shadow: 0 1px 7px rgba(0,0,0,0.6);
+    border-radius: 2.5mm 2.5mm;
+    position: unset;
+}
+
+.button:hover {
+    background-color: #EAEAF4;
+    margin-top: 10px;
+	box-shadow: 0 0px 7px rgba(0,0,0,0.6);
+    margin-bottom: 6px;
+}
+
+.button:active {
+    background-color: #DBDEE6;
+    margin-top: 12px;
+	box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+    margin-bottom: 4px;
+}
+
+body {
+	padding: 0%;
+	font-family: Consolas;
+	background-color: #EDEDF4;
+}
+
+.turing_tape {
+	display: block;
+} 
+
+.turing_frame {
+	margin: auto;
+    width: 80%;
+	border: 1px solid #333333;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.turing_table {
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-family: Consolas;
+	margin: 8px;
+}
+
+.turing_table th, td {
+	border: 1px solid black;
+	padding: 6px;
+	text-align: center;
+}
+
+.cell {
+	border: none;
+	border-color: transparent;
+	font-family: Consolas;
+	padding: 6px;
+}
+
+.plain_text {
+	font-family: Consolas;
+}
+
+.cell_markup {
+	border: none;
+	vertical-align: top;
+	text-align: left;
+}
+
+.program_header {
+	font: bold 18px Consolas;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	margin-bottom: 16px;
+	border: none;
+	border-color: transparent;
+}
