@@ -13,6 +13,12 @@
 			<h2>Случайный автомат!</h2>
 		</button>
 	</center>
+<br><br><br>
+
+	<div width=640px>
+		<?php include 'psearch_form.php' ?>
+	</div>
+
 </div>
 
 

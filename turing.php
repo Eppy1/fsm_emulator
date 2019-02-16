@@ -37,7 +37,7 @@
 				<button class="button" onclick="writeValue('0')">0</button>
 				<button class="button" onclick="writeValue('-')">-</button><br>
 				<button class="button" onclick="moveLeft()"><-</button>
-				<button class="button" onclick="moveRight()">-></button>
+				<button class="button" onclick="moveRight()">-></button><br><br>
 			</td>
 		</tr>
 	</table>

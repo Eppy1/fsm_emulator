@@ -11,6 +11,8 @@ var running = 0;
 
 var states = [];
 
+var program_id = 0;
+
 var header = "Turing program #1"
 
 class TuringOp {
@@ -190,11 +192,51 @@ function stop() {
 	//tape_dir = tape_tab = 0;
 }
 
+function makeCode() {
+	var code = "";
+	var table = document.getElementById("turing_table");
+	var n = table.getElementsByTagName("tr").length;
+
+	for(var i=1; i<n; i++) {
+		var name = table.rows[i].cells[0].textContent;
+		var on1  = table.rows[i].cells[1].textContent;
+		var on0  = table.rows[i].cells[2].textContent;
+		var on_  = table.rows[i].cells[3].textContent;
+		
+		code += name + ":\n";
+		if(on1.length > 0) code += "   1 -> " + on1 + "\n";
+		if(on0.length > 0) code += "   0 -> " + on0 + "\n";
+		if(on_.length > 0) code += "   X -> " + on_ + "\n";
+		code += "\n";
+	}
+	
+	alert(code);
+	return code;
+}
+
+function saveCode() {
+	var code1 = makeCode();
+
+	var request = $.ajax({
+		url: "fsm_save.php",
+		type: "POST",
+		data: {func: "save", id: program_id, code: code1, fsm: "turing", name: header},
+		dataType: "html"
+	  });
+	   
+	  request.done(function(msg) {
+		alert("kek " + msg);
+	  });
+	   
+	  request.fail(function(jqXHR, textStatus) {
+		alert( "Request failed: " + textStatus );
+	  });
+}
+
 function setup() {
 	resizeTape();
 	setWord('1101');
 	redraw();
-
 	var title = document.getElementById('program_header');
 	title.oninput = function() {
 		header = title.value;
