@@ -9,7 +9,7 @@
 
         if(mysqli_num_rows($query) > 0) {
             $m = $query->fetch_assoc();
-            $res = $m['id']."||".$m['name']."||".$m['data'];
+            $res = $m['id']."||".$m['name']."||".$m['data']."||".$m['fsm_type'];
 
             echo json_encode($res);
         }

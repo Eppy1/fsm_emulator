@@ -246,6 +246,10 @@ function acceptProg(msg) {
 	program_id = parseInt(arr[0]);
 	document.getElementById('program_header').value = arr[1];
 
+	var table = document.getElementById("turing_table");
+	table.removerRow(1);
+	table.removerRow(2);
+
 	var code = arr[2].split("\\n");
 
 	for(var i=0; i<code.length; i++) {

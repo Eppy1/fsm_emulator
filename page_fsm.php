@@ -4,16 +4,21 @@
 
 <?php
 
-    if(isset($_GET['fsm'])) {
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        
+        $connect=mysqli_connect('localhost', 'root', '', 'fsm');
+        $query=mysqli_query($connect,"SELECT * FROM `programs` WHERE id='{$id}'");
+
+        include $query->fetch_assoc()['fsm_type'] . '.php';
+
+        echo "<script> loadProg(parseInt(".$id.")); </script>";
+    }
+    else if(isset($_GET['fsm'])) {
         $fsm = $_GET['fsm'];
         if($fsm == 'turing') {
             include 'turing.php';
         } else echo '404';
-    }
-
-    if(isset($_GET['id'])) {
-        $id = $_GET['id'];
-        echo "<script> loadProg(parseInt(".$id.")); </script>";
     }
 ?>
 
