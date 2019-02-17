@@ -1,8 +1,6 @@
 <?php
      header('Content-Type: application/json');
 
-     $aResult = array();
-
      if(isset($_COOKIE['fsmemutoken'])) {
         $username = "GUEST";
         $user_id = 0;

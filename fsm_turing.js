@@ -138,7 +138,8 @@ function selectCell(cell) {
 	document.getElementById("test").textContent = "" + cell.className;
 }
 
-function addRow() {
+
+function addRow1(name, on1, on0, on_) {
 	var table = document.getElementById("turing_table");
 	var n = table.getElementsByTagName("tr").length;
 	var row = table.insertRow(n);
@@ -146,10 +147,17 @@ function addRow() {
 	var cell2 = row.insertCell(1); cell2.contentEditable = "true"
 	var cell3 = row.insertCell(2); cell3.contentEditable = "true"
 	var cell4 = row.insertCell(3); cell4.contentEditable = "true"
-	cell1.innerHTML = "q" + n;
-	cell2.innerHTML = "";
-	cell3.innerHTML = "";
-	cell4.innerHTML = "";
+	cell1.innerHTML = name;
+	cell2.innerHTML = on1;
+	cell3.innerHTML = on0;
+	cell4.innerHTML = on_;
+}
+
+function addRow() {
+	var table = document.getElementById("turing_table");
+	var n = table.getElementsByTagName("tr").length;
+
+	addRow1("q" + n, "", "", "");
 }
 
 function moveLeft() {
@@ -226,6 +234,54 @@ function saveCode() {
 	   
 	  request.done(function(msg) {
 		alert("kek " + msg);
+	  });
+	   
+	  request.fail(function(jqXHR, textStatus) {
+		alert( "Request failed: " + textStatus );
+	  });
+}
+
+function acceptProg(msg) {
+	var arr=msg.split('||');
+	program_id = parseInt(arr[0]);
+	document.getElementById('program_header').value = arr[1];
+
+	var code = arr[2].split("\\n");
+
+	for(var i=0; i<code.length; i++) {
+		if(code[i].includes(':')) {
+				var name = code[i].replace(' ', '').split(':')[0];
+				var on1 = '';
+				var on0 = '';
+				var on_ = '';
+
+				for(j=1; j<=3; j++) {
+					if(code[i+j].includes(':')) break;
+					if(code[i+j].includes('->')) {
+						var l = code[i+j].split(' -> ')[0];
+						var r = code[i+j].split(' -> ')[1];
+
+						if(l == '   1') on1 = r;
+						else if(l == '   0') on0 = r;
+						else on_ = r;
+					}
+				}
+
+				addRow1(name, on1, on0, on_);
+		}
+	}
+}
+
+function loadProg(id1) {
+	var request = $.ajax({
+		url: "fsm_load.php",
+		type: "POST",
+		data: {id: id1},
+		dataType: "html"
+	  });
+	   
+	  request.done(function(msg) {
+			acceptProg(msg);
 	  });
 	   
 	  request.fail(function(jqXHR, textStatus) {

@@ -40,7 +40,7 @@ function psearch_addRow(name, type, rating, author, date) {
     else time_ref = formatDate(new Date(date));
 
     var table = document.getElementById("table_psearch");
-    table.innerHTML += "<tr> <td style='text-align:left;'> <span class='program_name'>" + 
+    table.innerHTML += "<tr> <td style='width:40%; text-align:left;'> <span class='program_name'>" + 
     name + "</span><br> <span class='program_type'>" +  type +
     "</span> </td>" +  "<td class='stars'>" + stars + "</td> <td>" + author + 
     "</td> <td class='time_ref'>" + time_ref + "</td></tr>";
@@ -71,6 +71,20 @@ function psearch_update() {
 	  request.fail(function(jqXHR, textStatus) {
 		alert( "Request failed: " + textStatus );
 	  });
+}
+
+function psearch_filter() {
+    var filter = document.getElementById("input").value;
+
+    var table = document.getElementById("table_psearch");
+	var n = table.getElementsByTagName("tr").length;
+
+	for(i=0; i<n; i++) {
+		var prog = table.rows[i].cells[0].textContent;
+		var author  = table.rows[i].cells[2].textContent;
+        
+        table.rows[i].style.display = (prog.toUpperCase().includes(filter.toUpperCase()) || author.toUpperCase().includes(filter.toUpperCase())) ? 'block' : 'none';
+	}
 }
 
 function psearch_setup() {

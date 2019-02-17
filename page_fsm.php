@@ -4,11 +4,16 @@
 
 <?php
 
-    if(isset($_GET['fsm'])){
+    if(isset($_GET['fsm'])) {
         $fsm = $_GET['fsm'];
         if($fsm == 'turing') {
             include 'turing.php';
         } else echo '404';
+    }
+
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        echo "<script> loadProg(parseInt(".$id.")); </script>";
     }
 ?>
 

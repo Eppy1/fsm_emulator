@@ -43,11 +43,18 @@
         background: #fec;
     }
 
+    #input {
+        border: none;
+        border-bottom: 2px solid #777;
+        margin-bottom: 15px;
+        font-size: large;
+    }
+
 </style>
 
 <script src="psearch.js"></script>
 
-<input type="text" placeholder="Название программы...">
+<input id="input" oninput="psearch_filter()" type="text" placeholder="Название программы...">
 
 <table id="table_psearch">
 </table>
