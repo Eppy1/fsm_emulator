@@ -224,7 +224,6 @@ function makeCode() {
 
 function saveCode() {
 	var code1 = makeCode();
-
 	var request = $.ajax({
 		url: "fsm_save.php",
 		type: "POST",
@@ -243,12 +242,13 @@ function saveCode() {
 
 function acceptProg(msg) {
 	var arr=msg.split('||');
-	program_id = parseInt(arr[0]);
+	program_id = parseInt(arr[0].substr(1));
 	document.getElementById('program_header').value = arr[1];
-
+	header = document.getElementById('program_header').value;
+	
 	var table = document.getElementById("turing_table");
-	table.removerRow(1);
-	table.removerRow(2);
+	table.deleteRow(1);
+	table.deleteRow(1);
 
 	var code = arr[2].split("\\n");
 
@@ -270,7 +270,6 @@ function acceptProg(msg) {
 						else on_ = r;
 					}
 				}
-
 				addRow1(name, on1, on0, on_);
 		}
 	}

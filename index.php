@@ -17,6 +17,7 @@
 
 	<div width=640px>
 		<?php include 'psearch_form.php' ?>
+		<script>  psearch_update("1"); </script>
 	</div>
 
 </div>

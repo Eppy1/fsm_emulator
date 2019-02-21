@@ -14,7 +14,7 @@ function formatDate(date) {
     return day + ' ' + monthNames[monthIndex];
   }
 
-function psearch_addRow(name, type, rating, author, date) {
+function psearch_addRow(id, name, type, rating, author, date) {
     var stars = "<span style='color:#a03'>";
 
     for(var i=0; i<rating; i++) stars += '*';
@@ -40,7 +40,7 @@ function psearch_addRow(name, type, rating, author, date) {
     else time_ref = formatDate(new Date(date));
 
     var table = document.getElementById("table_psearch");
-    table.innerHTML += "<tr> <td style='width:40%; text-align:left;'> <span class='program_name'>" + 
+    table.innerHTML += "<tr onclick=\"window.location.href = 'page_fsm.php?fsm=turing&id="+id+"'\"> <td style='width:40%; text-align:left;'> <span class='program_name'>" + 
     name + "</span><br> <span class='program_type'>" +  type +
     "</span> </td>" +  "<td class='stars'>" + stars + "</td> <td>" + author + 
     "</td> <td class='time_ref'>" + time_ref + "</td></tr>";
@@ -52,19 +52,20 @@ function psearch_upd(msg) {
     for(var i=0; i<q.length-1; i++)
     {
         var arr = q[i].split('||');
-        psearch_addRow(arr[1], arr[2], parseInt(arr[4]), "eppy", arr[3]);
+        psearch_addRow(arr[0], arr[1], arr[2], parseInt(arr[4]), arr[6], arr[3]);
     }
 }
 
-function psearch_update() {
+function psearch_update(arg) {
     var request = $.ajax({
 		url: "psearch.php",
 		type: "POST",
-		data: {func: "select"},
+		data: {func: "select", filter: arg},
 		dataType: "html"
 	  });
 	   
 	  request.done(function(msg) {
+        //alert(msg);
         psearch_upd(msg);
 	  });
 	   
@@ -86,9 +87,3 @@ function psearch_filter() {
         table.rows[i].style.display = (prog.toUpperCase().includes(filter.toUpperCase()) || author.toUpperCase().includes(filter.toUpperCase())) ? 'block' : 'none';
 	}
 }
-
-function psearch_setup() {
-    psearch_update();
-}
-
-window.onload = psearch_setup;

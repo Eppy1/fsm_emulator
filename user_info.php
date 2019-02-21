@@ -20,7 +20,7 @@
         echo '<a class=\'white_link\' href=\'page_reg.php\'>Регистрация&nbsp;</a><br>';
         echo '<a class=\'white_link\' href=\'#\'onclick=\'showAuth();\'>Вход&nbsp;</a>';
     } else {
-        echo "<span onclick=\"window.location.href = 'person.php'\">" . $username . "&nbsp;";
+        echo "<span id=\"info_usrname\" onclick=\"window.location.href = 'person.php'\">" . $username . "&nbsp;";
         echo "<img class=\"avatar\" align=\"middle\" src=\"ava_default.png\"/></span>";
     }
 ?>

@@ -9,12 +9,14 @@
         $connect=mysqli_connect('localhost', 'root', '', 'fsm');
         $query=mysqli_query($connect,"SELECT * FROM `users` WHERE token='{$_COOKIE['fsmemutoken']}'");
         if(mysqli_num_rows($query) > 0) {
-            $username=$query->fetch_assoc()['login'];
-            $mail =  $query->fetch_assoc()['login'];
+            
+            $row = $query->fetch_assoc();
+            $username=$row['login'];
+            $email =  $row['email'];
  
             echo "<h3><img class=\"avatar\" style=\"border: 2px solid #4e73a0\" src=\"ava_default.png\"/>";
-            echo "&nbsp;".$username."</h3><br>";
-            echo "email: " . $mail;
+            echo "&nbsp;<span id=\"usrname\">".$username."</span></h3><br>";
+            echo "email: " . $email;
         }
     }
 
@@ -24,6 +26,22 @@
     } else {
     }
 ?>
+
+<h3> Ваши программы: </h3> <br>
+
+<div width=640px>
+		<?php include 'psearch_form.php' ?>
+        <script> 
+            function getCookie(name) {
+                var matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+                ));
+                alert(matches ? decodeURIComponent(matches[1]) : undefined);
+                return matches ? decodeURIComponent(matches[1]) : undefined;
+            }
+            psearch_update("author = '" + document.getElementById("usrname").innerHTML+ "'");
+        </script>
+	</div>
 
 <form action="exit.php"  method="post">
     <input class="button" type="submit" value="Выход">
