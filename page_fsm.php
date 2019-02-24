@@ -33,13 +33,23 @@
         $query=mysqli_query($connect,"SELECT rating FROM `programs` WHERE id='{$id}'");
 
         echo "<br><span id='like_counter'>".$query->fetch_assoc()['rating']."</span> likes";
+        echo "<button class='button' id='btn_like' onclick='like();'>like!</button>";
     }
 ?>
 
 <br>
-<button class="button" id="btn_like" onclick="like();">like!</button>
+<?php 
+    if(isset($_GET['id']) && $_GET['id'] != '0') {
+        include 'comment_form.php';
+    } 
+ ?>
 
-<?php include 'comment_form.php' ?>
+<script>
+    window.onload = function() {
+        setup();
+        setTimeout(cmt_update, 1000);
+    }
+</script>
 
 </div>
 <?php include 'footer.php' ?>

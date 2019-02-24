@@ -33,10 +33,12 @@
 
 </style>
 
-<table id="table_comment">
-</table>
+</span id="comment_form">
+    <table id="table_comment">
+    </table>
 
-<h3> Write comment<h3>
-<textarea id='new_comment_field' placeholder='Type your new comment here...'></textarea><br>
-<button class="button" id='btn_comment'>Comment!</button>
-<script src="comment.js"></script>
+    <h3> Write a comment:<h3>
+    <textarea id='new_comment_field' placeholder='Type your new comment here...'></textarea><br>
+    <button class="button" onclick='cmt_comment()' id='btn_comment'>Comment!</button>
+    <script src="comment.js"></script>
+<span>

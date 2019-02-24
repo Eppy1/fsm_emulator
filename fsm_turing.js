@@ -301,7 +301,7 @@ function like() {
 	  });
 	   
 	  request.done(function(msg) {
-			if(msg == "wtf") {}
+			if(msg == "wtf") {alert('wtf');}
 			else document.getElementById("like_counter").innerHTML = "" + msg;
 	  });
 	   
@@ -320,5 +320,4 @@ function setup() {
 	}
 }
 
-window.onload = setup;
 window.onresize = resizeTape;

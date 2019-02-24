@@ -1,14 +1,14 @@
 <?php
-    $id = 0;
-    $connect=mysqli_connect('localhost', 'root', '', 'fsm');
-    $query=mysqli_query($connect,"SELECT * FROM `users` WHERE token='{$_COOKIE['fsmemutoken']}'");
-    if(mysqli_num_rows($query) > 0) $id = $query->fetch_assoc()['id'];
-    else {
-        echo "wtf";
+    include 'utils.php';
+
+    $id = getCurrentUserId();
+    if($id == '0') {
+        echo 'wtf';
         return;
     }
 
-    $query=mysqli_query($connect,"SELECT * FROM `likes` WHERE user_id='{$id}'");
+    $connect=mysqli_connect('localhost', 'root', '', 'fsm');
+    $query=mysqli_query($connect,"SELECT * FROM `likes` WHERE user_id='{$id}' AND program_id='{$_POST['program']}'");
 
     if(mysqli_num_rows($query) == 0) {
         mysqli_query($connect,"INSERT INTO `likes` (user_id, program_id) VALUES ('{$id}', '{$_POST['program']}')");
