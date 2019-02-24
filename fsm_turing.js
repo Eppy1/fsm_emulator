@@ -292,6 +292,24 @@ function loadProg(id1) {
 	  });
 }
 
+function like() {
+	var request = $.ajax({
+		url: "like.php",
+		type: "POST",
+		data: {program: program_id},
+		dataType: "html"
+	  });
+	   
+	  request.done(function(msg) {
+			if(msg == "wtf") {}
+			else document.getElementById("like_counter").innerHTML = "" + msg;
+	  });
+	   
+	  request.fail(function(jqXHR, textStatus) {
+		alert( "Request failed: " + textStatus );
+	  });
+}
+
 function setup() {
 	resizeTape();
 	setWord('1101');

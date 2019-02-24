@@ -16,7 +16,7 @@
 
     .stars {
         font-weight: bold;
-        font-size: x-large;
+        /*font-size: x-large;*/
     }
 
     .time_ref {

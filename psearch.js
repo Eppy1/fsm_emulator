@@ -15,12 +15,15 @@ function formatDate(date) {
   }
 
 function psearch_addRow(id, name, type, rating, author, date) {
+    /*
     var stars = "<span style='color:#a03'>";
 
     for(var i=0; i<rating; i++) stars += '*';
     stars += "</span><span style='color:#777'>";
     for(var i=rating; i<5; i++) stars += '*';
     stars += "</span>";
+    */
+    var stars = "<span style='color:#a03'>" + rating + " likes</span>";
 
     switch(type) {
         case 'turing':
