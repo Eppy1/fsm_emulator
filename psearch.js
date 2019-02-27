@@ -29,10 +29,10 @@ function psearch_addRow(id, name, type, rating, author, date) {
     var d = (Date.now() - new Date(date).getTime()) / 1000 - 3600*3;
     var time_ref = 'Недавно';
     
-    if(d < 5) time_ref = 'Только что';
-    else if(d <= 60) time_ref = Math.trunc(d) + ' секунд назад';
-    else if(d <= 3600) time_ref = Math.trunc(d/60) + ' минут назад';
-    else if(d <= 3600*24) time_ref = Math.trunc(d/3600) + ' часов назад';
+    if(d < 5) time_ref = 'Recently';
+    else if(d <= 60) time_ref = Math.trunc(d) + ' seconds ago';
+    else if(d <= 3600) time_ref = Math.trunc(d/60) + ' minutes ago';
+    else if(d <= 3600*24) time_ref = Math.trunc(d/3600) + ' hours ago';
     else time_ref = formatDate(new Date(date));
 
     var table = document.getElementById("table_psearch");

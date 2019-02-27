@@ -232,7 +232,9 @@ function saveCode() {
 	  });
 	   
 	  request.done(function(msg) {
-		alert("kek " + msg);
+			if(!msg.includes("UPDATE")) {
+				window.location.replace("/page_fsm.php?fsm=turing&id="+msg);
+			}
 	  });
 	   
 	  request.fail(function(jqXHR, textStatus) {

@@ -1,6 +1,7 @@
 <style>
     #table_psearch {
         border-collapse: collapse;
+        width: 640px;
     }
 
     .program_name {
@@ -60,7 +61,7 @@
 
 <script src="psearch.js"></script>
 
-<input id="input" oninput="psearch_filter()" type="text" placeholder="Название программы...">
+<input id="input" oninput="psearch_filter()" type="text" placeholder="Search...">
 
 <table id="table_psearch">
 </table>

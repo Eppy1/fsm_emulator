@@ -29,6 +29,8 @@
         if($id== '0') {
             $sql_q = "INSERT INTO `programs` (name, fsm_type, data, author, last_change, rating, shared) VALUES ('{$name}', '{$fsm_type}', '{$data}', '{$author}', '{$last_change}', '{$rating}', '{$shared}')";
             $res=mysqli_query($connect, $sql_q);
+            echo mysqli_insert_id($connect);
+            return;
         } else {   
             $qqq=mysqli_query($connect,"SELECT * FROM `programs` WHERE id='{$id}'");
             if($author == $qqq->fetch_assoc()['author']) {

@@ -221,15 +221,20 @@ input[type=text], input[type=password] {
     position: relative;
     padding: 6px;
 	font-size:large;
+	-webkit-transition: all 0.25s ease;;
+	-moz-transition: all 0.25s ease;;
+	-o-transition: all 0.25s ease;;
+	transition: all 0.25s ease;
 }
 
 .button:hover {
 	box-shadow: 0 1px 4px rgba(0,0,0,0.6);
 	top: 1px;
+	background-color: #d8d0dc;
 }
 
 .button:active {
-    background-color: #9f8aa8;
+    background-color: #cabecf;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.7);
 	top: 3px;
 }
