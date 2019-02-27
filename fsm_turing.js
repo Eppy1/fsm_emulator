@@ -302,7 +302,11 @@ function like() {
 	   
 	  request.done(function(msg) {
 			if(msg == "wtf") {alert('wtf');}
-			else document.getElementById("like_counter").innerHTML = "" + msg;
+			else {
+				var m = msg.split(' ');
+				document.getElementById("like_counter").innerHTML = "" + m[0];
+				document.getElementById("heart").src = m[1];
+			}
 	  });
 	   
 	  request.fail(function(jqXHR, textStatus) {

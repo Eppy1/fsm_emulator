@@ -17,10 +17,12 @@
     }
 
     if($username == 'GUEST') {
-        echo '<a class=\'white_link\' href=\'page_reg.php\'>Регистрация&nbsp;</a><br>';
-        echo '<a class=\'white_link\' href=\'#\'onclick=\'showAuth();\'>Вход&nbsp;</a>';
+        echo "<a class='white_link' onclick=\"window.location.href = 'page_reg.php'\">SIGN UP</a><br>";
+        echo "<a class='white_link' onclick='showAuth();'>SIGN IN&nbsp;</a><br>";
     } else {
-        echo "<span id=\"info_usrname\" onclick=\"window.location.href = 'person.php'\">" . $username . "&nbsp;";
-        echo "<img class=\"avatar\" align=\"middle\" src=\"ava_default.png\"/></span>";
+        //echo "<center>";
+        echo "<span class='white_link id=\"info_usrname\" onclick=\"window.location.href = 'person.php'\">" . $username . "&nbsp;";
+        echo "<img class=\"avatar\" align=\"middle\" src=\"ava_default.png\"/ onclick=\"window.location.href = 'person.php'\"></span>";
+        //echo "</center>";
     }
 ?>

@@ -1,21 +1,20 @@
-
 function cmt_addComment(user, date, content) {
     var d = (Date.now() - new Date(date).getTime()) / 1000 - 3600*3;
     var time_ref = 'Недавно';
     
-    if(d < 5) time_ref = 'Только что';
-    else if(d <= 60) time_ref = Math.trunc(d) + ' секунд назад';
-    else if(d <= 3600) time_ref = Math.trunc(d/60) + ' минут назад';
-    else if(d <= 3600*24) time_ref = Math.trunc(d/3600) + ' часов назад';
+    if(d < 5) time_ref = 'Recently';
+    else if(d <= 60) time_ref = Math.trunc(d) + ' seconds ago';
+    else if(d <= 3600) time_ref = Math.trunc(d/60) + ' minutes ago';
+    else if(d <= 3600*24) time_ref = Math.trunc(d/3600) + ' hours ago';
     else time_ref = formatDate(new Date(date));
 
     var table = document.getElementById("table_comment");
 
     table.innerHTML += "<tr class=\"comment\">"+
-    "<td> <img class='ava' src='ava_default.png'/></td>"+
+    "<td width='48px'><img class='ava' src='ava_default.png'/></td>"+
     "<td><span class='nickname'>" + user + "</span>&nbsp;&nbsp;"+
     "<span class='time'>" + time_ref + "</span><br>"+
-    "<span class='expr'>" + content + "</span></td>";
+    "<span class='expr'>" + content + "</span></td></tr>";
 }
 
 function cmt_update() {
@@ -34,7 +33,10 @@ function cmt_update() {
 	  });
 	   
     request.done(function(msg) {
+        alert(msg);
         comments = msg.split('==');
+
+        document.getElementById("comment_counter").innerText = (comments.length-1) + " comments";
 
         for(i=0; i<comments.length-1; i++) {
             var comment = comments[i].split('||');

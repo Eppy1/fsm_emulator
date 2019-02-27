@@ -1,6 +1,6 @@
 <script src='fsm_turing.js'></script>
 
-<input style="border:none" id="program_header" class="program_header" type="text", value="Turing program #1">
+<input id="program_header" class="program_header" type="text", value="Turing program #1">
 
 <div id="turing_frame" class="turing_frame">
 	<canvas class='turing_tape' id='turing_tape'>Обновите браузер</canvas>

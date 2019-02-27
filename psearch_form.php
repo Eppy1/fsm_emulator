@@ -5,7 +5,7 @@
 
     .program_name {
         font-weight: bold;
-        font-size: larger;
+        font-size: large;
     }
 
     .program_type {
@@ -16,6 +16,7 @@
 
     .stars {
         font-weight: bold;
+        vertical-align: bottom;
         /*font-size: x-large;*/
     }
 
@@ -26,11 +27,8 @@
 
     #table_psearch td {
         border: none;
-        vertical-align: top;
-        padding-top: 12px;
-        padding-bottom: 24px;
-        padding-left: 8px;
-        padding-right: 8px;
+        vertical-align: middle;
+        padding: 18px;
     }
 
     #table_psearch tr {
@@ -40,7 +38,7 @@
     }
 
     #table_psearch tr:hover {
-        background: #fec;
+        background: #e2d2ea;
     }
 
     #input {
@@ -50,6 +48,10 @@
         font-size: large;
     }
 
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: small;
+    }
 </style>
 
 <script src="psearch.js"></script>

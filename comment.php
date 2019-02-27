@@ -14,7 +14,7 @@
 
         $row = $q->fetch_assoc();
 
-        do {
+        while($row != NULL) {
             $q1 = mysqli_query($connect, 
             "SELECT * FROM `users` 
             WHERE id='{$row['user_id']}'");
@@ -28,8 +28,8 @@
             $res .= "||".$content."==";
 
             $row = $q->fetch_assoc();
-        } while($row != NULL);
-
+        }
+        
         echo $res;
     }
 

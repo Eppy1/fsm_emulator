@@ -1,33 +1,26 @@
 
 function formatDate(date) {
     var monthNames = [
-      "января", "февраля", "марта",
-      "апреля", "мая", "июня", "июля",
-      "августа", "сентябра", "октября",
-      "ноября", "декабря"
+      "Jan", "Feb", "Mar",
+      "Apr", "May", "Jun", "Jul",
+      "Aug", "Sep", "Oct",
+      "Nov", "Dec"
     ];
   
     var day = date.getDate();
     var monthIndex = date.getMonth();
     var year = date.getFullYear();
   
-    return day + ' ' + monthNames[monthIndex];
+    return monthNames[monthIndex] + ' ' + day;
   }
 
 function psearch_addRow(id, name, type, rating, author, date) {
-    /*
-    var stars = "<span style='color:#a03'>";
-
-    for(var i=0; i<rating; i++) stars += '*';
-    stars += "</span><span style='color:#777'>";
-    for(var i=rating; i<5; i++) stars += '*';
-    stars += "</span>";
-    */
-    var stars = "<span style='color:#a03'>" + rating + " likes</span>";
+    var stars = "<img style='align:bottom; height:5mm' src='like_stroke.png' />"+
+                "<span style='color:#935171; font-size:large;'>&nbsp;" + rating + "</span>";
 
     switch(type) {
         case 'turing':
-            type = 'Машина Тьюринга';
+            type = 'Turing machine';
             break;
 
         default: break;
@@ -45,7 +38,7 @@ function psearch_addRow(id, name, type, rating, author, date) {
     var table = document.getElementById("table_psearch");
     table.innerHTML += "<tr onclick=\"window.location.href = 'page_fsm.php?fsm=turing&id="+id+"'\"> <td style='width:40%; text-align:left;'> <span class='program_name'>" + 
     name + "</span><br> <span class='program_type'>" +  type +
-    "</span> </td>" +  "<td class='stars'>" + stars + "</td> <td>" + author + 
+    "</span> </td>" +  "<td class='stars'>" + stars + "</td> <td style='font-size:large'>" + author + 
     "</td> <td class='time_ref'>" + time_ref + "</td></tr>";
 }
 

@@ -14,8 +14,8 @@
             $username=$row['login'];
             $email =  $row['email'];
  
-            echo "<h3><img class=\"avatar\" style=\"border: 2px solid #4e73a0\" src=\"ava_default.png\"/>";
-            echo "&nbsp;<span id=\"usrname\">".$username."</span></h3><br>";
+            echo "<h2><img class=\"avatar\" style=\"border: 1px solid #333\" src=\"ava_default.png\"/>";
+            echo "&nbsp;<span id=\"usrname\">".$username."</span></h2><br>";
             echo "email: " . $email;
         }
     }
@@ -27,7 +27,7 @@
     }
 ?>
 
-<h3> Ваши программы: </h3> <br>
+<h3> Your programs: </h3> <br>
 
 <div width=640px>
 		<?php include 'psearch_form.php' ?>
@@ -44,7 +44,7 @@
 	</div>
 
 <form action="exit.php"  method="post">
-    <input class="button" type="submit" value="Выход">
+    <input class="button" type="submit" value="LOG OUT">
 </form>
 
 </div>
