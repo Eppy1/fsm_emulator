@@ -35,7 +35,7 @@
         $query=mysqli_query($connect,"SELECT rating FROM `programs` WHERE id='{$id}'");
         $q2   =mysqli_query($connect,"SELECT * FROM `likes` WHERE user_id='{$user_id}' AND program_id='{$id}'");
 
-        $img = mysqli_num_rows($query) == 0 ? 'like_stroke.png' : 'like_fill.png';
+        $img = mysqli_num_rows($q2) == 0 ? 'like_stroke.png' : 'like_fill.png';
 
         echo "<div onclick='like();' style='cursor:pointer;'><br><img id='heart' style='align:bottom; height:5mm' src='{$img}' /><span id='like_counter' style='color:#935171; font-size:x-large;'>&nbsp;".$query->fetch_assoc()['rating']."</span>";
         echo "</div>";

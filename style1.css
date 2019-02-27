@@ -17,6 +17,22 @@ input {
     font: 14px;
 }
 
+#logo {
+	cursor:pointer;
+	height:95%;
+
+	-webkit-transition: all 0.25s ease;;
+	-moz-transition: all 0.25s ease;;
+	-o-transition: all 0.25s ease;;
+	transition: all 0.25s ease;
+}
+
+#logo:hover {
+	-webkit-transform: rotateZ(18deg);
+  	-ms-transform: rotateZ(18deg);
+  	transform: rotateZ(18deg);
+}
+
 input[type=text], input[type=password] {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	font-size: large;
@@ -106,6 +122,11 @@ input[type=text], input[type=password] {
 	color: #FFFFFF;
 	padding:1mm;
 	padding-right: 2mm;
+
+	-webkit-transition: all 0.25s ease;;
+	-moz-transition: all 0.25s ease;;
+	-o-transition: all 0.25s ease;;
+	transition: all 0.25s ease;
 }
 
 .white_link:hover {
@@ -134,7 +155,28 @@ input[type=text], input[type=password] {
 	margin: 0px;
 	padding: 0px;
 	cursor: pointer;
+
+	-webkit-transition: all 0.25s ease;;
+	-moz-transition: all 0.25s ease;;
+	-o-transition: all 0.25s ease;;
+	transition: all 0.25s ease;
 }
+
+@-webkit-keyframes fade_in {
+	from { margin-left: 100%; width: 300%; }
+	to { margin-left: 0%; width: 100%; }
+}
+
+@-moz-keyframes fade_in {
+	from { margin-left: 100%; width: 300%; }
+	to { margin-left: 0%; width: 100%; }
+}
+
+@keyframes fade_in {
+	from { margin-left: 100%; width: 300%; }
+	to { margin-left: 0%; width: 100%; }
+}
+
 .header_cell {
 	font-size: larger;
 	min-width: 28mm;
@@ -146,6 +188,11 @@ input[type=text], input[type=password] {
 	margin: 0px;
 	vertical-align: center;
 	color: #EAEAF4;
+
+	-webkit-transition: all 0.25s ease;;
+	-moz-transition: all 0.25s ease;;
+	-o-transition: all 0.25s ease;;
+	transition: all 0.25s ease;
 }
 
 .header_cell:hover {

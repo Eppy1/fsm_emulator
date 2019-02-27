@@ -8,7 +8,7 @@
 	<body>
 
     <div class="header">
-        <img style="cursor:pointer; align:left; height:95%;"  align="left" src="/logo.png" onclick="window.location.href = '/'"/>
+        <img id="logo"align="left" src="/logo.png" onclick="window.location.href = '/'"/>
         <table height=100%>
             </tr>
                 <td class="header_cell" onclick="window.location.href = 'page_fsm.php?fsm=turing'" >Turing<br>machine</td>

@@ -17,7 +17,6 @@
     .stars {
         font-weight: bold;
         vertical-align: bottom;
-        /*font-size: x-large;*/
     }
 
     .time_ref {
@@ -35,10 +34,15 @@
         border-bottom: 1px solid #bbb;
         border-top: 1px solid #bbb;
         border-collapse: collapse;
+
+        -webkit-transition: all 0.25s ease;;
+        -moz-transition: all 0.25s ease;;
+        -o-transition: all 0.25s ease;;
+        transition: all 0.25s ease;
     }
 
     #table_psearch tr:hover {
-        background: #e2d2ea;
+        background: #ece1f1;
     }
 
     #input {

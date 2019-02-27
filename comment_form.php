@@ -33,6 +33,11 @@
         border-top: 1px solid #eee;
         border-collapse: collapse;
         text-align: left;
+
+        -webkit-transition: all 0.25s ease;;
+        -moz-transition: all 0.25s ease;;
+        -o-transition: all 0.25s ease;;
+        transition: all 0.25s ease;
     }
 
     #table_comment tr:hover {

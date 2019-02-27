@@ -33,7 +33,6 @@ function cmt_update() {
 	  });
 	   
     request.done(function(msg) {
-        alert(msg);
         comments = msg.split('==');
 
         document.getElementById("comment_counter").innerText = (comments.length-1) + " comments";
