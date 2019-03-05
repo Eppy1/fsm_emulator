@@ -247,7 +247,8 @@ function acceptProg(msg) {
 	program_id = parseInt(arr[0].substr(1));
 	document.getElementById('program_header').value = arr[1];
 	header = document.getElementById('program_header').value;
-	
+	document.getElementById('author').innerHTML = "Author: " + arr[4].substr(0, arr[4].length-1); 
+
 	var table = document.getElementById("turing_table");
 	table.deleteRow(1);
 	table.deleteRow(1);

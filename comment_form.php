@@ -91,11 +91,17 @@
 
 </span id="comment_form">
     <div id="comment_counter">n comments</div>
-    <table id="table_comment">
-    </table>
+    <table id="table_comment"></table>
 
-    <h3> Write a comment:<h3>
-    <textarea id='new_comment_field' placeholder='Type your new comment here...'></textarea><br>
-    <button class="button" style='margin-left:0px;'onclick='cmt_comment()' id='btn_comment'>Comment!</button>
-    <script src="comment.js"></script>
+    <script src='comment.js'></script>
+    <?php 
+        if(getCurrentUserId() == '0') {
+            echo "\n\nPlease <a href='/page_reg.php'>LOG IN</a> to post a comment!";
+        } else {
+            echo "<h3> Write a comment:<h3>".
+            "<textarea id='new_comment_field' placeholder='Type your new comment here...'></textarea><br>".
+            "<button class='button' style='margin-left:0px;'onclick='cmt_comment()' id='btn_comment'>Comment!</button>";
+        }
+    ?>
+
 <span>

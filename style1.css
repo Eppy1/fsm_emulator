@@ -42,7 +42,22 @@ input[type=text], input[type=password] {
     border-radius: 2px;
 }
 
-#auth_popup {
+::-webkit-scrollbar {
+    width: 2mm;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(3, 2, 2, 0.1); 
+    border-radius: 1mm;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 1mm;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1); 
+	background-color: lightgray;
+}
+
+#auth_popup, #help_popup, #rules_popup {
     display: none;
     width: 20%;
 	box-shadow: 0 0px 15px rgba(0,0,0,0.4);
@@ -53,6 +68,13 @@ input[type=text], input[type=password] {
 	z-index: 100;
 	border-radius: 1mm;
 	padding: 2.5%;
+}
+
+#help_popup, #rules_popup {
+    width: 40%;
+	margin-left: 22.5%;
+	height: 60%;
+	overflow: auto;
 }
 
 #wrap{
@@ -156,9 +178,9 @@ input[type=text], input[type=password] {
 	padding: 0px;
 	cursor: pointer;
 
-	-webkit-transition: all 0.25s ease;;
-	-moz-transition: all 0.25s ease;;
-	-o-transition: all 0.25s ease;;
+	-webkit-transition: all 0.25s ease;
+	-moz-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
 	transition: all 0.25s ease;
 }
 
@@ -287,3 +309,18 @@ input[type=text], input[type=password] {
 	border-color: transparent;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.loader {
+	border: 1.5mm solid #d8c9df;
+	border-top: 1.5mm solid #634c7f;
+	border-radius: 50%;
+	width: 10mm;
+	height: 10mm;
+	animation: spin 2s linear infinite;
+	margin: 8px;
+  }
+  
+  @keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }

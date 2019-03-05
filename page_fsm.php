@@ -1,8 +1,54 @@
-<?php include 'header.php' ?>
+<?php include 'header.php'; ?>
+<?php include 'utils.php'; ?>
 
 <div class="content">
 
+<style >
+    #author {
+        float:right;
+        color: #777;
+    }
+</style>
+
+
+<script>
+    function hideHelp() {
+
+    }
+
+    function showHelp() {
+        document.getElementById('help_popup').style.display = "block";
+        document.getElementById('wrap').style.display = "block";
+    }
+</script>
+
+<div id="help_popup">
+    <?php
+    $fsm = "wtf";
+
+    if(isset($_GET['fsm'])) {
+            $fsm = $_GET['fsm'];
+    } else if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+            
+        $connect=mysqli_connect('localhost', 'root', '', 'fsm');
+        $query=mysqli_query($connect,"SELECT * FROM `programs` WHERE id='{$id}'");
+
+        $fsm = $query->fetch_assoc()['fsm_type'];
+    }
+
+    include $fsm.'_help.php';
+
+    ?>
+</div>
+
+<button class='button' onclick='showHelp()'>Help & Info</button>
+
+
 <?php
+    if(isset($_GET['id']) && $_GET['id'] != '0') {
+        echo '<span id="author">Author: '.'??'.'</span><br>';
+    }
 
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -22,10 +68,20 @@
     }
 ?>
 
-<button class="button" onclick="saveCode()">Save this</button>
+<?php
+    if(getCurrentUserId() == '0') {
+        //NOP
+    } else {
+        $text = "Save Code";
+
+        if(isset($_GET['id']) && $_GET['id'] != '0') $text = "Save & Publish";
+
+        echo '<button class="button" onclick="saveCode()">Save this</button>';
+    }
+?>
+
 
 <?php
-    include 'utils.php';
 
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -43,8 +99,19 @@
 ?>
 
 <br>
+
 <?php 
+
     if(isset($_GET['id']) && $_GET['id'] != '0') {
+        $url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+        
+        echo '<script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>'.
+        '<script src="//yastatic.net/share2/share.js"></script>'.
+        '<div class="ya-share2" data-services="vkontakte,facebook,twitter,lj,telegram"'.
+        "data-url='http://127.0.0.1:1394/".$_SERVER['REQUEST_URI']."'></div>";
+        
+        echo "<div class='loader' id='loader'></div>";
+        
         include 'comment_form.php';
     } 
  ?>

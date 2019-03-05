@@ -27,6 +27,8 @@
         function hihide() {
             document.getElementById('auth_popup').style.display = "none";
             document.getElementById('wrap').style.display = "none";
+            var h = document.getElementById('help_popup');
+            if(h) h.style.display = "none"
         }
     </script>
 

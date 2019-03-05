@@ -14,8 +14,9 @@ function formatDate(date) {
     return monthNames[monthIndex] + ' ' + day;
   }
 
-function psearch_addRow(id, name, type, rating, author, date) {
-    var stars = "<img style='align:bottom; height:5mm' src='like_stroke.png' />"+
+function psearch_addRow(id, name, type, rating, author, date, like) {
+    var heart = like != '0' ? "like_fill.png" : "like_stroke.png";
+    var stars = "<img style='align:bottom; height:5mm' src='" + heart + "' />"+
                 "<span style='color:#935171; font-size:large;'>&nbsp;" + rating + "</span>";
 
     switch(type) {
@@ -48,7 +49,7 @@ function psearch_upd(msg) {
     for(var i=0; i<q.length-1; i++)
     {
         var arr = q[i].split('||');
-        psearch_addRow(arr[0], arr[1], arr[2], parseInt(arr[4]), arr[6], arr[3]);
+        psearch_addRow(arr[0], arr[1], arr[2], parseInt(arr[4]), arr[6], arr[3], arr[7]);
     }
 }
 

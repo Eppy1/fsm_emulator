@@ -1,6 +1,21 @@
+function formatDate(date) {
+    var monthNames = [
+      "Jan", "Feb", "Mar",
+      "Apr", "May", "Jun", "Jul",
+      "Aug", "Sep", "Oct",
+      "Nov", "Dec"
+    ];
+  
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+  
+    return monthNames[monthIndex] + ' ' + day;
+  }
+
 function cmt_addComment(user, date, content) {
     var d = (Date.now() - new Date(date).getTime()) / 1000 - 3600*3;
-    var time_ref = 'Недавно';
+    var time_ref = 'Right now';
     
     if(d < 5) time_ref = 'Recently';
     else if(d <= 60) time_ref = Math.trunc(d) + ' seconds ago';
@@ -24,6 +39,7 @@ function cmt_update() {
     }
 
     document.getElementById("table_comment").innerHTML="";
+    document.getElementById("loader").style.display = 'none';
 
     var request = $.ajax({
 		url: "comment.php",
@@ -33,6 +49,8 @@ function cmt_update() {
 	  });
 	   
     request.done(function(msg) {
+        //alert(msg);
+
         comments = msg.split('==');
 
         document.getElementById("comment_counter").innerText = (comments.length-1) + " comments";
@@ -43,7 +61,7 @@ function cmt_update() {
             var username = comment[0];
             var time_ref = comment[1];
             var content = comment[2];
-
+            //alert(content);
             cmt_addComment(username, time_ref, content);
         }
     });
@@ -66,6 +84,7 @@ function cmt_comment() {
 	  });
 	   
     request.done(function(msg) {
+        //alert(msg);
         cmt_update();
     });
 	   

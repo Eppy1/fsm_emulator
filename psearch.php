@@ -1,5 +1,6 @@
 <?php
     header('Content-Type: application/json');
+    include 'utils.php';
 
     $connect=mysqli_connect('localhost', 'root', '', 'fsm');
 
@@ -11,11 +12,24 @@
 
     $row = $query->fetch_row();
 
-    do {
-        /////   
-        //TODO LIKE_FILL
-        //////
 
+    do {  
+        ///
+        $like = '0';
+/*
+        $user_id = getCurrentUserId();
+        $a = "SELECT program_id FROM `likes` WHERE user_id = '{$user_id}'";
+        $q_like= mysqli_query($connect, $a);
+
+        $i = mysqli_fetch_row($q_like);
+        while($i != NULL) {
+            if($row[0] == $i[0]) {
+                $like = '1';
+                break;
+            }
+            $i = mysqli_fetch_row($q_like);
+        }*/
+        ////
         $id=$row[0];
         $name=$row[1];
         $type=$row[2];
@@ -30,7 +44,7 @@
         $q .= "||".$last_change;
         $q .= "||".$rating;
         $q .= "||".$shared;
-        $q .= "||".$author."==";
+        $q .= "||".$author."||".$like."==";
 
         $row = $query->fetch_row();
     } while($row != NULL);
