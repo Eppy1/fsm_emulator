@@ -51,6 +51,7 @@
         border-bottom: 2px solid #777;
         margin-bottom: 15px;
         font-size: large;
+        width: 480px;
     }
 
     ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

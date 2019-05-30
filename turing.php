@@ -10,34 +10,34 @@
 			<td class="cell_markup">
 				<table id="turing_table" class="turing_table">
 					<tr>
-						<th>Состояние</th><th>1</th><th>0</th><th>Пусто</th>
+						<th>State</th><th>1</th><th>0</th><th>space</th>
 					</tr>
 					<tr>
 						<td contenteditable='true'>q0</td>
 						<td contenteditable='true'>q1 L 1</td>
 						<td contenteditable='true'>q1 R 1</td>
-						<td contenteditable='true'>q0 R Пусто</td>
+						<td contenteditable='true'>q0 R space</td>
 					</tr>
 					<tr>
 						<td contenteditable='true'>q1</td>
 						<td contenteditable='true'>q0 R 0</td>
 						<td contenteditable='true'>q0 L 0</td>
-						<td contenteditable='true'>q0 R Пусто</td>
+						<td contenteditable='true'>q0 R space</td>
 					</tr>
 				</table>
 				<button class="button" onclick="addRow()">+</button>
 			</td>
 			<td class="cell_markup">
-				<span id="txt_steps" class="plain_text">Шагов: 0</span> <br>
-				<span id="txt_state" class="plain_text">Состояние: q0</span><br>
-				<button class="button" onclick="run()">RUN</button>
-				<button class="button" onclick="stop()">STOP</button>
-				<button class="button" onclick="stop()">STEP</button><br>
-				<button class="button" onclick="writeValue('1')">1</button>
-				<button class="button" onclick="writeValue('0')">0</button>
-				<button class="button" onclick="writeValue('-')">-</button><br>
-				<button class="button" onclick="moveLeft()"><-</button>
-				<button class="button" onclick="moveRight()">-></button><br><br>
+				<b><span id="txt_steps" class="plain_text">Steps: 0</span>&nbsp;&nbsp;&nbsp;
+				<span id="txt_state" class="plain_text">State: q0</span><br></b>
+				<button class="button" style="width:60px;" onclick="run()">RUN</button>
+				<button class="button" style="width:60px;" onclick="stop()">STOP</button>
+				<button class="button" style="width:60px;" onclick="stop()">STEP</button><br>
+				<button class="button" style="width:60px;" onclick="writeValue('1')">&nbsp;1&nbsp;</button>
+				<button class="button" style="width:60px;" onclick="writeValue('0')">&nbsp;0&nbsp;</button>
+				<button class="button" style="width:60px;" onclick="writeValue('-')">&nbsp;-&nbsp;</button><br>
+				<button class="button" style="width:60px;" onclick="moveLeft()">&#8656;</button>
+				<button class="button" style="width:60px;" onclick="moveRight()">&#8658;</button><br><br>
 			</td>
 		</tr>
 	</table>

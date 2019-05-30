@@ -39,14 +39,14 @@ function drawTape() {
 	tape = document.getElementById('turing_tape');
 	ctx = tape.getContext('2d');
 	
-	ctx.strokeStyle = '#003';
+	ctx.strokeStyle = '#2d1e2d';
 	ctx.fillStyle = '#fff';
 	ctx.font = "48px Courier";
 	ctx.fillRect(0, 4, tape.width, CELL_SIZE+16+10);
 
 	var w = tape.width;
 
-	for(var i=-10; i<w/(CELL_SIZE+4); i++) {
+	for(var i=-20; i<w/(CELL_SIZE+4); i++) {
 		x = w/2 - (CELL_SIZE+4)/2 + (CELL_SIZE+4)*i + tape_tab
 		y = 16
 
@@ -63,8 +63,8 @@ function drawTape() {
 	ctx.fillStyle = '#a03';
 	ctx.beginPath();
     ctx.moveTo(w/2, 16 + CELL_SIZE - 10);
-    ctx.lineTo(w/2-8, 16 + CELL_SIZE - 10 + 24);
-    ctx.lineTo(w/2+8, 16 + CELL_SIZE - 10 + 24);
+    ctx.lineTo(w/2-8, 16 + CELL_SIZE - 11 + 24);
+    ctx.lineTo(w/2+8, 16 + CELL_SIZE - 11 + 24);
     ctx.fill();
 }
 

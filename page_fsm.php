@@ -12,10 +12,6 @@
 
 
 <script>
-    function hideHelp() {
-
-    }
-
     function showHelp() {
         document.getElementById('help_popup').style.display = "block";
         document.getElementById('wrap').style.display = "block";
@@ -64,6 +60,12 @@
         $fsm = $_GET['fsm'];
         if($fsm == 'turing') {
             include 'turing.php';
+        } else if($fsm == 'post') {
+            include 'post.php';
+        } else if($fsm == 'brainfuck') {
+            include 'brainfuck.php';
+        } else if($fsm == 'life') {
+            include 'life.php';
         } else echo '404';
     }
 ?>
