@@ -4,10 +4,11 @@ var tape_tab = 0;
 var tape_dir = 0;
 
 var tape_arr = [];
+var program = [];
 var pos = 0;
 var steps = 0;
-var current_state = "q0";
 var running = 0;
+var curr_line = 1;
 
 var program_id = 0;
 
@@ -17,14 +18,14 @@ function drawTape() {
 	tape = document.getElementById('post_tape');
 	ctx = tape.getContext('2d');
 	
-	ctx.strokeStyle = '#003';
+	ctx.strokeStyle = '#2d1e2d';
 	ctx.fillStyle = '#fff';
 	ctx.font = "48px Courier";
 	ctx.fillRect(0, 4, tape.width, CELL_SIZE+16+10);
 
 	var w = tape.width;
 
-	for(var i=-10; i<w/(CELL_SIZE+4); i++) {
+	for(var i=-20; i<w/(CELL_SIZE+4); i++) {
 		x = w/2 - (CELL_SIZE+4)/2 + (CELL_SIZE+4)*i + tape_tab
 		y = 16
 
@@ -41,8 +42,8 @@ function drawTape() {
 	ctx.fillStyle = '#a03';
 	ctx.beginPath();
     ctx.moveTo(w/2, 16 + CELL_SIZE - 10);
-    ctx.lineTo(w/2-8, 16 + CELL_SIZE - 10 + 24);
-    ctx.lineTo(w/2+8, 16 + CELL_SIZE - 10 + 24);
+    ctx.lineTo(w/2-8, 16 + CELL_SIZE - 11 + 24);
+    ctx.lineTo(w/2+8, 16 + CELL_SIZE - 11 + 24);
     ctx.fill();
 }
 
@@ -76,6 +77,29 @@ function hliteCode() {
 	code_area.innerHTML = result;
 }
 
+function interpretate() {
+	var text = code_area.innerText;
+	var lines = text.split(String.fromCharCode(10));
+	program = [];
+	for(var i=0; i<lines.length; i++) {
+		lines[i] = lines[i].replace('\t', ' ').replace('  ', ' ').replace('  ', ' ');
+		var line = lines[i].split(' ');
+
+		var n = parseInt(line[0]);
+		if(i == 0) curr_line = n;
+		program[n] = []
+		for(var j=1; j<line.length; j++) {
+			program[n][j-1] = line[j];
+		}
+	}
+}
+
+function run() {
+	interpretate();
+	steps = 0;
+	running = 1;
+}
+
 function redraw() {
 	tape_tab += tape_dir * 2.8;
 
@@ -86,40 +110,23 @@ function redraw() {
 	
 	if(running) {
 		if(tape_dir == 0 && tape_tab == 0) {
-            /*
-			for(i=0; i<states.length; i++) {
-				document.getElementById('turing_table').rows[i+1].style.backgroundColor = "#fff";
+
+			var line = program[curr_line];
+			
+			steps++;
+			document.getElementById('txt_steps').innerHTML = "Steps: " + steps;
+			curr_line++;
+			switch(line[0]) {
+				case 'L': tape_dir = +1; break;
+				case 'R': tape_dir = -1; break;
+				case 'X': tape_arr[pos] = '0'; break;
+				case 'V': tape_arr[pos] = '1'; break;
+				case '-': tape_arr[pos] = '-'; break;
+				case '!': running = 0; break;
+				case '?': curr_line = tape_arr[pos] == '1' ? line[1] : line[2]; break;
 			}
-            */
-			for(i=0; i<states.length; i++) {
-				if(current_state == states[i].name) {
-					document.getElementById('turing_table').rows[i+1].style.backgroundColor = "#fd9";
 
-					steps++;
-					document.getElementById('txt_steps').innerHTML = "Шагов: " + steps;
-
-					var op = states[i].on_;
-
-					switch(tape_arr[pos]) {
-					case '1': op = states[i].on1; break;
-					case '0': op = states[i].on0; break;
-					}
-					
-					if(op.next == "STOP") {
-						running = 0;
-						break;
-					}
-
-					tape_arr[pos] = op.write;
-					if(op.move == 'L') tape_dir = +1;
-					if(op.move == 'R') tape_dir = -1;
-					current_state = op.next;
-					
-					document.getElementById('txt_state').innerHTML = "Состояние: " + op.next;
-
-					break;
-				}
-			}
+			document.getElementById('txt_state').innerHTML = "State: " + curr_line;
 		}
 	}
     drawTape();
@@ -140,11 +147,9 @@ function writeValue(x) {
 }
 
 function makeCode() {
-	var code = "";
-	/**
-     * TODO
-     * TODO
-     */
+	var code = code_area.innerText;
+	for(var i=0; i<code.length; i++) code = code.replace(String.fromCharCode(10), '#').trim();
+	alert(code);
 	return code;
 }
 
@@ -159,7 +164,7 @@ function saveCode() {
 	   
 	  request.done(function(msg) {
 			if(!msg.includes("UPDATE")) {
-				window.location.replace("/page_fsm.php?fsm=turing&id="+msg);
+				window.location.replace("/page_fsm.php?fsm=post&id="+msg);
 			}
 	  });
 	   
@@ -169,9 +174,14 @@ function saveCode() {
 }
 
 function acceptProg(msg) {
-    /*TODO
-     *TODO
-     */
+	var arr=msg.split('||');
+	program_id = parseInt(arr[0].substr(1));
+	document.getElementById('program_header').value = arr[1];
+	header = document.getElementById('program_header').value;
+	document.getElementById('author').innerHTML = "Author: " + arr[4].substr(0, arr[4].length-1); 
+
+	for(var i=0; i<arr[2].length; i++) arr[2] = arr[2].replace('#', '<br>');
+    document.getElementById("code_area").innerHTML = arr[2];
 }
 
 function loadProg(id1) {

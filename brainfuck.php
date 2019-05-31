@@ -50,7 +50,8 @@
 <div id="bf_frame" class="turing_frame">
 	<div id='memory_area'></div>
 	<div id='output_area'>>run me</div>
-	<div contenteditable="true" id="code_area"> +++++++++++++++++++++++++++++++++++++++++++++
+	<div contenteditable="true" id="code_area">
+ +++++++++++++++++++++++++++++++++++++++++++++
  +++++++++++++++++++++++++++.+++++++++++++++++
  ++++++++++++.+++++++..+++.-------------------
  ---------------------------------------------

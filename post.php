@@ -20,20 +20,20 @@
 		<tr>
 			<td class="cell_markup" style="width:50%">
 				<div contenteditable="true" id="code_area">
-					1. L<br>2. ? 1; 3<br>3. X<br>4. R<br>5. ? 4; 6<br>6. X<br>7. R<br>8. ? 9; 1<br>9. !<br>
+					1 L<br>2 ? 1 3<br>3 X<br>4 R<br>5 ? 4 6<br>6 X<br>7 R<br>8 ? 9 1<br>9 !<br>
 				</div>
 			</td>
 			<td class="cell_markup">
-				<span id="txt_steps" class="plain_text">Шагов: 0</span> <br>
-				<span id="txt_state" class="plain_text">Состояние: q0</span><br>
-				<button class="button" onclick="run()">RUN</button>
-				<button class="button" onclick="stop()">STOP</button>
-				<button class="button" onclick="stop()">STEP</button><br>
-				<button class="button" onclick="writeValue('1')">1</button>
-				<button class="button" onclick="writeValue('0')">0</button>
-				<button class="button" onclick="writeValue('-')">-</button><br>
-				<button class="button" onclick="moveLeft()"><-</button>
-				<button class="button" onclick="moveRight()">-></button><br><br>
+				<b><span id="txt_steps" class="plain_text">Steps: 0</span>&nbsp;&nbsp;&nbsp;
+				<span id="txt_state" class="plain_text">State: q0</span><br></b>
+				<button class="button" style="width:60px;" onclick="run()">RUN</button>
+				<button class="button" style="width:60px;" onclick="stop()">STOP</button>
+				<button class="button" style="width:60px;" onclick="stop()">STEP</button><br>
+				<button class="button" style="width:60px;" onclick="writeValue('1')">&nbsp;1&nbsp;</button>
+				<button class="button" style="width:60px;" onclick="writeValue('0')">&nbsp;0&nbsp;</button>
+				<button class="button" style="width:60px;" onclick="writeValue('-')">&nbsp;-&nbsp;</button><br>
+				<button class="button" style="width:60px;" onclick="moveLeft()">&#8656;</button>
+				<button class="button" style="width:60px;" onclick="moveRight()">&#8658;</button><br><br>
 			</td>
 		</tr>
 	</table>
