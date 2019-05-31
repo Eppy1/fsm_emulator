@@ -21,7 +21,7 @@
         $data = $_POST['code'];
         $author = $username;
         $last_change = date("Y-m-d H:i:s");
-        $rating = 5;
+        $rating = 0;
         $shared = 1;
 
         $id = $_POST['id'];

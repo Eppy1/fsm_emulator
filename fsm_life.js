@@ -30,25 +30,28 @@ function run() {
 
 function makeCode() {
 	var code = "";
-	/**
-     * TODO
-     * TODO
-     */
+	for(var i=0; i<HEIGHT; i++) {
+		for(var j=0; j<WIDTH; j++) {
+			code += main_arr[i*WIDTH+j] ? '1' : '0';
+		}
+	}
 	return code;
 }
 
 function saveCode() {
+	alert(program_id);
 	var code1 = makeCode();
+	alert(code1);
 	var request = $.ajax({
 		url: "fsm_save.php",
 		type: "POST",
-		data: {func: "save", id: program_id, code: code1, fsm: "post", name: header},
+		data: {func: "save", id: program_id, code: code1, fsm: "life", name: header},
 		dataType: "html"
 	  });
 	   
 	  request.done(function(msg) {
 			if(!msg.includes("UPDATE")) {
-				window.location.replace("/page_fsm.php?fsm=turing&id="+msg);
+				window.location.replace("/page_fsm.php?fsm=life&id="+msg);
 			}
 	  });
 	   
@@ -58,9 +61,18 @@ function saveCode() {
 }
 
 function acceptProg(msg) {
-    /*TODO
-     *TODO
-     */
+  var arr=msg.split('||');
+	program_id = parseInt(arr[0].substr(1));
+	document.getElementById('program_header').value = arr[1];
+	header = document.getElementById('program_header').value;
+	document.getElementById('author').innerHTML = "Author: " + arr[4].substr(0, arr[4].length-1); 
+	var map = arr[2];
+	for(var i=0; i<HEIGHT; i++) {
+		for(var j=0; j<WIDTH; j++) {
+			reserved_arr[i*WIDTH+j] = main_arr[i*WIDTH+j] = map[i*WIDTH+j] == '1';
+		}
+	}
+	updateField();
 }
 
 function loadProg(id1) {
@@ -193,12 +205,13 @@ function setup() {
 }
 
 function reset() {
+	clearInterval(runTimer);
 	for(var i=0; i<HEIGHT; i++) {
 		for(var j=0; j<WIDTH; j++) {
 			main_arr[i*WIDTH+j] = reserved_arr[i*WIDTH+j];
 		}
 	}
-	clearInterval(runTimer);
+	updateField();
 }
 
 function stop() {
