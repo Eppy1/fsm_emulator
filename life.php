@@ -45,7 +45,7 @@
 
 </style>
 
-<input id="program_header" class="program_header" type="text", value="The Game of Life program #1">
+<input id="program_header" class="program_header" type="text" style="width:400px" value="The Game of Life program #1">
 
 <div id="life_frame" class="turing_frame">
 	<table id='field'> </table>

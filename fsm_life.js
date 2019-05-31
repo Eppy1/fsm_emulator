@@ -1,6 +1,6 @@
 var program_id = 0;
 
-var header = "Game of life program #1"
+var header = "The Game of life program #1"
 
 var main_arr = [];
 var reserved_arr = [];
@@ -193,5 +193,14 @@ function setup() {
 }
 
 function reset() {
+	for(var i=0; i<HEIGHT; i++) {
+		for(var j=0; j<WIDTH; j++) {
+			main_arr[i*WIDTH+j] = reserved_arr[i*WIDTH+j];
+		}
+	}
+	clearInterval(runTimer);
+}
 
+function stop() {
+	clearInterval(runTimer);
 }

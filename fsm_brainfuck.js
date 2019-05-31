@@ -1,6 +1,6 @@
 var program_id = 0;
 
-var header = "Post program #1"
+var header = "Brainfuck program #1"
 
 var main_arr = [];
 var pos = 0;
@@ -38,7 +38,9 @@ function step() {
 
 	var code_area = document.getElementById('code_area');
 
-	code_area.innerHTML = code.substr(0, code_pos-1) + '<span style="color: white; background-color: #634c7f">' + text[code_pos] +'</span>' + code.substr(code_pos+1)
+	if(code_pos >= code.length-1) {
+		code_area.innerHTML = code;
+	} else code_area.innerHTML = code.substr(0, code_pos-1) + '<span style="color: white; background-color: #634c7f">' + text[code_pos] +'</span>'+ code.substr(code_pos+1)
 }
 
 function runCode() {
@@ -52,18 +54,14 @@ function runCode() {
 		 step();
 		 updateMemory();
 		 if(code_pos >= code.length) {
-			 clearTimeout(interp);
+				code_area.innerHTML = code;
+				clearTimeout(interp);
 		 }
 		}, 20);
 }
 
 function makeCode() {
-	var code = "";
-	/**
-     * TODO
-     * TODO
-     */
-	return code;
+	return code_area.innerText.trim();
 }
 
 function saveCode() {
@@ -71,13 +69,13 @@ function saveCode() {
 	var request = $.ajax({
 		url: "fsm_save.php",
 		type: "POST",
-		data: {func: "save", id: program_id, code: code1, fsm: "post", name: header},
+		data: {func: "save", id: program_id, code: code1, fsm: "brainfuck", name: header},
 		dataType: "html"
 	  });
 	   
 	  request.done(function(msg) {
 			if(!msg.includes("UPDATE")) {
-				window.location.replace("/page_fsm.php?fsm=turing&id="+msg);
+				window.location.replace("/page_fsm.php?fsm=brainfuck&id="+msg);
 			}
 	  });
 	   
@@ -87,9 +85,13 @@ function saveCode() {
 }
 
 function acceptProg(msg) {
-    /*TODO
-     *TODO
-     */
+	var arr=msg.split('||');
+	program_id = parseInt(arr[0].substr(1));
+	document.getElementById('program_header').value = arr[1];
+	header = document.getElementById('program_header').value;
+	document.getElementById('author').innerHTML = "Author: " + arr[4].substr(0, arr[4].length-1); 
+
+    document.getElementById("code_area").innerHTML = arr[2];
 }
 
 function loadProg(id1) {
@@ -134,7 +136,7 @@ function like() {
 function updateMemory() {
 	var table = '<table style="border"><tr><th>#</th>';
 
-	for(var i=0; i<16; i++) table += '<th width=32px>' + i.toString(16) + '</th>';
+	for(var i=0; i<16; i++) table += '<th>' + i.toString(16) + '</th>';
 
 	table += '<th>char</th></tr>';
 
@@ -189,6 +191,12 @@ function reset() {
 	pos = 0;
 	code_pos = 0;
 	document.getElementById('output_area').innerHTML = '> ';
+	updateMemory();
+	code = code_area.innerText.trim();
+}
+
+function stepFromGui() {
+	step();
 	updateMemory();
 }
 

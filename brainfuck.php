@@ -60,6 +60,7 @@
  ---------------------------------------------
  ----.-----------------------.
 	</div>
-	<button class="button" onclick="runCode()">RUN</button>
-	<button class="button" onclick="reset()">RESET</button><br>
+	<button class="button" style="width:64px" onclick="runCode()">RUN</button>
+	<button class="button" style="width:64px" onclick="stepFromGui()">STEP</button>
+	<button class="button" style="width:64px" onclick="reset()">RESET</button><br>
 </div>
