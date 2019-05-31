@@ -54,6 +54,5 @@
 	!0 -> 0!!;<br>
 	0 ->;<br>
 	</div>
-	<button class="button" style="width:64px" onclick="runCode()">RUN</button>
 	<button class="button" style="width:64px" onclick="step()">STEP</button>
 </div>

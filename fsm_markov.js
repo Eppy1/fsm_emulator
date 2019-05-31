@@ -6,7 +6,7 @@ var program = []
 var interp = undefined
 
 
-function runCode() {
+function prepare() {
 	program = []
 	var code_area = document.getElementById('code_area');
 	var code = code_area.innerText.trim().split(';');
@@ -19,22 +19,18 @@ function runCode() {
 
 		//alert(program[i]);
 	}
-	
-	interp = setInterval(function() {
-		 step();/*
-		 if(curr >= program.length) {
-				code_area.innerHTML = code;
-				clearTimeout(interp);
-		 }*/
-		}, 500);
-		
 }
 
 function step() {
-	for(var k=0; i<program.length; k++) {
-		var text = document.getElementById('output_area').innerText;
-		for(var i=0; i<text.length; i++) text.replace(program[k][0], program[k][1]);
-		document.getElementById('output_area').innerText = text;
+	prepare();
+	var b=false;
+	for(var k=0; k<program.length; k++) {
+		var text = document.getElementById('output_area').innerHTML + "";
+		b = text.includes(program[k][0]);
+		for(var i=0; i<10; i++) text = text.replace(program[k][0], program[k][1]);
+		document.getElementById('output_area').innerHTML = text;
+
+		if(b) break;
 	}
 }
 
