@@ -66,6 +66,8 @@
             include 'brainfuck.php';
         } else if($fsm == 'life') {
             include 'life.php';
+        } else if($fsm == 'markov') {
+            include 'markov.php';
         } else echo '404';
     }
 ?>
