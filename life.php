@@ -50,8 +50,10 @@
 <div id="life_frame" class="turing_frame">
 	<table id='field'> </table>
 
-	<button class="button" onclick="run()">RUN</button>
+	<span id="txt_gen">Generation: 0 </span><br>
+	<button class="button" onclick="run();">RUN</button>
 	<button class="button" onclick="step();">STEP</button>
-	<button class="button" onclick="reset()">RESET</button><br>
-	<button class="button" onclick="stop()">STOP</button><br>
+	<button class="button" onclick="reset();">RESET</button><br>
+	<button class="button" onclick="stop();">STOP</button>
+	<button class="button" onclick="stop(); main_arr = []; reserved_arr = []; generation = 0; updateField();">CLEAR</button><br>
 </div>

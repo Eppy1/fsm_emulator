@@ -14,9 +14,13 @@
     }
 
     function getCurrentUserName() {
+        if(!isset($_COOKIE['fsmemutoken'])) {
+            return '-';
+        }
+
         $name = '-';
         $connect=mysqli_connect('localhost', 'root', '', 'fsm');
-
+        
         $query=mysqli_query($connect,
         "SELECT * FROM `users` 
         WHERE token='{$_COOKIE['fsmemutoken']}'");

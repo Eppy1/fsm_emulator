@@ -12,12 +12,18 @@ var HEIGHT = 18
 var running = false;
 var runTimer = undefined;
 
+var generation = 0;
+
 function step() {
 	makeIteration();
 }
 
 function run() {
+	if(running) return;
+
 	running = true;
+
+	generation = 0;
 
 	for(var i=0; i<HEIGHT; i++) {
 		for(var j=0; j<WIDTH; j++) {
@@ -36,6 +42,14 @@ function makeCode() {
 		}
 	}
 	return code;
+}
+
+function clear() {
+	alert('kek');
+	stop();
+	main_arr = [];
+	reserved_arr = [];
+	updateField();
 }
 
 function saveCode() {
@@ -145,6 +159,8 @@ function countCells(x, y) {
 function makeIteration() {
 	var tmp_arr = [];
 
+	generation++;
+
 	for(var i=0; i<HEIGHT; i++) {
 		for(var j=0; j<WIDTH; j++) {
 			var count = countCells(j, i);
@@ -169,6 +185,8 @@ function updateField() {
 			field.rows[i].cells[j].className = main_arr[i*WIDTH+j] ? 'fullCell' : 'emptyCell';
 		}
 	}
+
+	document.getElementById("txt_gen").innerHTML = "Generation: " + generation;
 }
 
 function makeField() {
@@ -205,6 +223,8 @@ function setup() {
 }
 
 function reset() {
+	generation = 0;
+
 	clearInterval(runTimer);
 	for(var i=0; i<HEIGHT; i++) {
 		for(var j=0; j<WIDTH; j++) {
