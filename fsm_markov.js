@@ -35,12 +35,7 @@ function step() {
 }
 
 function makeCode() {
-	/**
-	 * TODO
-	 * TODO
-	 * TODO
-	 */
-	return "";
+	return code_area.innerText.trim();
 }
 
 function saveCode() {
@@ -70,12 +65,7 @@ function acceptProg(msg) {
 	header = document.getElementById('program_header').value;
 	document.getElementById('author').innerHTML = "Author: " + arr[4].substr(0, arr[4].length-1); 
 
-	document.getElementById("code_area").innerHTML = arr[2];
-	/**
-	 * TODO
-	 * TODO
-	 * TODO
-	 */
+	document.getElementById("code_area").innerHTML = arr[2].replace('\\n', String.fromCharCode(10));
 }
 
 function loadProg(id1) {

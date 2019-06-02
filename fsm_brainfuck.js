@@ -60,7 +60,7 @@ function runCode() {
 		 updateMemory();
 		 if(code_pos >= code.length) {
 				code_area.innerHTML = code;
-				clearTimeout(interp);
+				clearInterval(interp);
 		 }
 		}, 20);
 }
@@ -182,16 +182,17 @@ function setup() {
 	}
 
 	updateMemory();
-
+/*
 	setInterval(function() {
 		if(interp != undefined) return;
 		var code_area = document.getElementById('code_area');
-		code_area.innerHTML = code_area.innerText
+		code_area.innerHTML = code_area.innerText.trim()
 	}, 100);
+	*/
 }
 
 function reset() {
-	if(interp != undefined) clearTimeout(interp);
+	if(interp != undefined) clearInterval(interp);
 	main_arr = [];
 	pos = 0;
 	code_pos = 0;
