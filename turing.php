@@ -13,17 +13,24 @@
 						<th>State</th><th>1</th><th>0</th><th>space</th>
 					</tr>
 					<tr>
-						<td contenteditable='true'>q0</td>
-						<td contenteditable='true'>q1 L 1</td>
-						<td contenteditable='true'>q1 R 1</td>
-						<td contenteditable='true'>q0 R space</td>
+						<td contenteditable='true'>q1</td>
+						<td contenteditable='true'>q1 L 0</td>
+						<td contenteditable='true'>q0 L 1</td>
+						<td contenteditable='true'>q2 L 1</td>
 					</tr>
 					<tr>
-						<td contenteditable='true'>q1</td>
-						<td contenteditable='true'>q0 R 0</td>
+						<td contenteditable='true'>q0</td>
+						<td contenteditable='true'>q0 L 1</td>
 						<td contenteditable='true'>q0 L 0</td>
-						<td contenteditable='true'>q0 R space</td>
+						<td contenteditable='true'>STOP</td>
 					</tr>
+					<tr>
+						<td contenteditable='true'>q2</td>
+						<td contenteditable='true'>STOP</td>
+						<td contenteditable='true'>STOP</td>
+						<td contenteditable='true'>STOP</td>
+					</tr>
+
 				</table>
 				<button class="button" onclick="addRow()">+</button>
 			</td>

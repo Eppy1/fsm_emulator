@@ -20,7 +20,7 @@
 		<tr>
 			<td class="cell_markup" style="width:50%">
 				<div contenteditable="true" id="code_area">
-					1 L<br>2 ? 1 3<br>3 X<br>4 R<br>5 ? 4 6<br>6 X<br>7 R<br>8 ? 9 1<br>9 !<br>
+					1 L<br>2 ? 3 1<br>3 X<br>4 R<br>5 ? 6 4<br>6 X<br>7 R<br>8 ? 1 9<br>9 !<br>
 				</div>
 			</td>
 			<td class="cell_markup">

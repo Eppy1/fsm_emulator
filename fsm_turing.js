@@ -191,6 +191,8 @@ function interpretate() {
 
 function run() {
 	interpretate();
+	current_state = states[0].name;
+	//alert(current_state);
 	steps = 0;
 	running = 1;
 }

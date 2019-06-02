@@ -16,7 +16,7 @@
                 <td class="header_cell" onclick="window.location.href = 'page_fsm.php?fsm=life'" >Conway's<br>Game of Life</td>
                 <td class="header_cell" onclick="window.location.href = 'page_fsm.php?fsm=markov'" >Markov<br>algorithm</td>
                 <td class="header_cell" onclick="window.location.href = 'page_fsm.php?fsm=brainfuck'" >Brain<br>Fuck</td>
-                <td class="header_cell" onclick="window.location.href = '#'" >More<br>machines</td>
+                <!--<td class="header_cell" onclick="window.location.href = '#'" >More<br>machines</td>-->
                 <td class="header_cell_user" id="header_cell_user"> <?php include 'user_info.php' ?> </td>
             </tr>
         </table>
