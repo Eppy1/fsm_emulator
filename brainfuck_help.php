@@ -1,5 +1,24 @@
-<h2> Turing machine </h2>
+<h2> Brainfuck </h2>
 
-A Turing machine is a mathematical model of computation that defines an abstract machine,[1] which manipulates symbols on a strip of tape according to a table of rules.[2] Despite the model's simplicity, given any computer algorithm, a Turing machine capable of simulating that algorithm's logic can be constructed.[3]
-The machine operates on an infinite[4] memory tape divided into discrete "cells".[5] The machine positions its "head" over a cell and "reads" or "scans"[6] the symbol there. Then, as per the symbol and its present place in a "finite table"[7] of user-specified instructions, the machine (i) writes a symbol (e.g., a digit or a letter from a finite alphabet) in the cell (some models allowing symbol erasure or no writing),[8] then (ii) either moves the tape one cell left or right (some models allow no motion, some models move the head),[9] then (iii) (as determined by the observed symbol and the machine's place in the table) either proceeds to a subsequent instruction or halts the computation.[10]
-The Turing machine was invented in 1936 by Alan Turing,[11][12] who called it an "a-machine" (automatic machine).[13] With this model, Turing was able to answer two questions in the negative: (1) Does a machine exist that can determine whether any arbitrary machine on its tape is "circular" (e.g., freezes, or fails to continue its computational task); similarly, (2) does a machine exist that can determine whether any arbitrary machine on its tape ever prints a given symbol.[14] Thus by providing a mathematical description of a very simple device capable of arbitrary computations, he was able to prove properties of computation in general—and in particular, the uncomputability of the Entscheidungsproblem ("decision problem").[15]
+Brainfuck is an esoteric programming language created in 1993 by Urban Müller, and is notable for its extreme minimalism.
+
+The language consists of only eight simple commands and an instruction pointer. While it is fully Turing complete, it is not intended for practical use, but to challenge and amuse programmers. Brainfuck simply requires one to break commands into microscopic steps.
+
+The language's name is a reference to the slang term brainfuck, which refers to things so complicated or unusual that they exceed the limits of one's understanding.
+<hr>
+
+<ul>
+  <li><b>></b> increment the data pointer</li>
+  <li><b><</b> decrement the data pointer</li>
+  <li><b>+</b> increment </li>
+  <li><b>-</b> decrement </li>
+  <li><b>.</b> output the byte at the data pointer</li>
+  <li><b>,</b> accept one byte of input, storing its value in the byte at the data pointer</li>
+  <li><b>[</b> if the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching ] command</li>
+  <li><b>]</b> if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching [ command</li>
+</ul>
+
+<hr>
+
+<button class="button" style="width:64px">RUN</button> - Runs the program<br>
+<button class="button" style="width:64px">RESET</button> - Resets the program<br>

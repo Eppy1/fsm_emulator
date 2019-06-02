@@ -30,7 +30,7 @@ function psearch_addRow(id, name, type, rating, author, date, like) {
     }
 
     var d = (Date.now() - new Date(date).getTime()) / 1000 - 3600*3;
-    var time_ref = 'Недавно';
+    var time_ref = 'Recently';
     
     if(d < 5) time_ref = 'Recently';
     else if(d <= 60) time_ref = Math.trunc(d) + ' seconds ago';
@@ -39,7 +39,7 @@ function psearch_addRow(id, name, type, rating, author, date, like) {
     else time_ref = formatDate(new Date(date));
 
     var table = document.getElementById("table_psearch");
-    table.innerHTML += "<tr onclick=\"window.location.href = 'page_fsm.php?fsm=turing&id="+id+"'\"> <td style='width:40%; text-align:left;'> <span class='program_name'>" + 
+    table.innerHTML += "<tr onclick=\"window.location.href = 'page_fsm.php?fsm="+ type +"&id="+id+"'\"> <td style='width:40%; text-align:left;'> <span class='program_name'>" + 
     name + "</span><br> <span class='program_type'>" +  type +
     "</span> </td>" +  "<td class='stars'>" + stars + "</td> <td style='font-size:large'>" + author + 
     "</td> <td class='time_ref'>" + time_ref + "</td></tr>";
