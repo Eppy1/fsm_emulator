@@ -53,7 +53,7 @@ function cmt_update() {
 
         comments = msg.split('==');
 
-        document.getElementById("comment_counter").innerText = (comments.length-1) + " comments";
+        document.getElementById("comment_counter").innerText = (comments.length-1) + ((comments.length-1) == 1 ? " comment" : " comments");
 
         for(i=0; i<comments.length-1; i++) {
             var comment = comments[i].split('||');

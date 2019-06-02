@@ -51,6 +51,7 @@ function psearch_upd(msg) {
     for(var i=0; i<q.length-1; i++)
     {
         var arr = q[i].split('||');
+        if(arr[0] == '' || arr[1] == '') break;
         psearch_addRow(arr[0], arr[1], arr[2], parseInt(arr[4]), arr[6], arr[3], arr[7]);
     }
 }

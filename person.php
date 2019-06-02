@@ -36,7 +36,7 @@
                 var matches = document.cookie.match(new RegExp(
                 "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
                 ));
-                alert(matches ? decodeURIComponent(matches[1]) : undefined);
+                //alert(matches ? decodeURIComponent(matches[1]) : undefined);
                 return matches ? decodeURIComponent(matches[1]) : undefined;
             }
             psearch_update("author = '" + document.getElementById("usrname").innerHTML+ "'");
