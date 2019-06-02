@@ -6,6 +6,7 @@ var main_arr = [];
 var pos = 0;
 var code_pos = 0;
 var code = "";
+var code_reserved = "";
 var stack = [0];
 var interp = undefined;
 
@@ -44,11 +45,15 @@ function step() {
 }
 
 function runCode() {
-	reset();
 	
 	document.getElementById('output_area').innerHTML = "> ";
 	var code_area = document.getElementById('code_area');
 	code = code_area.innerText.trim();
+	code_reserved = code.trim();
+	main_arr = [];
+	pos = 0;
+	code_pos = 0;
+	updateMemory();
 
 	interp = setInterval(function() {
 		 step();
@@ -192,7 +197,6 @@ function reset() {
 	code_pos = 0;
 	document.getElementById('output_area').innerHTML = '> ';
 	updateMemory();
-	code = code_area.innerText.trim();
 }
 
 function stepFromGui() {

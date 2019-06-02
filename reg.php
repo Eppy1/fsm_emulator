@@ -6,6 +6,7 @@
         $pword=mysqli_real_escape_string($connect,$_POST['pword']);
         $query=mysqli_query($connect,"SELECT * FROM `users` WHERE login='{$login}'");
         $numr=mysqli_num_rows($query);
+
         if($numr==0) {
 
             $md5login = md5($login . $pword);
@@ -26,7 +27,7 @@
             }
         }
         else {
-            echo "Этот ник занятый. Попробуйте другой!";
+            echo "This username is already in use. Try anoser one!";
         }
     }
 ?>

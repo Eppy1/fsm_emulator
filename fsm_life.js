@@ -45,7 +45,7 @@ function makeCode() {
 }
 
 function clear() {
-	alert('kek');
+	//alert('kek');
 	stop();
 	main_arr = [];
 	reserved_arr = [];
@@ -53,9 +53,9 @@ function clear() {
 }
 
 function saveCode() {
-	alert(program_id);
+	//alert(program_id);
 	var code1 = makeCode();
-	alert(code1);
+	//alert(code1);
 	var request = $.ajax({
 		url: "fsm_save.php",
 		type: "POST",
@@ -224,7 +224,7 @@ function setup() {
 
 function reset() {
 	generation = 0;
-
+	running = false;
 	clearInterval(runTimer);
 	for(var i=0; i<HEIGHT; i++) {
 		for(var j=0; j<WIDTH; j++) {
@@ -235,5 +235,6 @@ function reset() {
 }
 
 function stop() {
+	running = false;
 	clearInterval(runTimer);
 }

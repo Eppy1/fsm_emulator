@@ -241,6 +241,10 @@ function setup() {
 	}
 }
 
+function stop() {
+	running = 0;
+}
+
 window.onresize = resizeTape;
 /*
 window.onerror = function(msg, url, linenumber) {

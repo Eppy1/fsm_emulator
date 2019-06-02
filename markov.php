@@ -47,7 +47,7 @@
 
 <input id="program_header" class="program_header" type="text", value="Markov program #1">
 
-<div id="markov_frame" class="turing_frame">
+<div id="markov_frame" class="turing_frame" contenteditable="true">
 	<div id='output_area'>101</div>
 	<div contenteditable="true" id="code_area">
 	1 -> 0!;<br>

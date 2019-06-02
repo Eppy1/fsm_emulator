@@ -94,7 +94,7 @@ function redraw() {
 					document.getElementById('turing_table').rows[i+1].style.backgroundColor = "#fd9";
 
 					steps++;
-					document.getElementById('txt_steps').innerHTML = "Шагов: " + steps;
+					document.getElementById('txt_steps').innerHTML = "Steps: " + steps;
 
 					var op = states[i].on_;
 
@@ -113,7 +113,7 @@ function redraw() {
 					if(op.move == 'R') tape_dir = -1;
 					current_state = op.next;
 					
-					document.getElementById('txt_state').innerHTML = "Состояние: " + op.next;
+					document.getElementById('txt_state').innerHTML = "State: " + op.next;
 
 					break;
 				}

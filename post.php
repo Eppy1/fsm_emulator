@@ -28,7 +28,7 @@
 				<span id="txt_state" class="plain_text">State: q0</span><br></b>
 				<button class="button" style="width:60px;" onclick="run()">RUN</button>
 				<button class="button" style="width:60px;" onclick="stop()">STOP</button>
-				<button class="button" style="width:60px;" onclick="stop()">STEP</button><br>
+				<!-- <button class="button" style="width:60px;" onclick="step()">STEP</button>--> <br> 
 				<button class="button" style="width:60px;" onclick="writeValue('1')">&nbsp;1&nbsp;</button>
 				<button class="button" style="width:60px;" onclick="writeValue('0')">&nbsp;0&nbsp;</button>
 				<button class="button" style="width:60px;" onclick="writeValue('-')">&nbsp;-&nbsp;</button><br>

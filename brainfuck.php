@@ -62,6 +62,6 @@
  ----.-----------------------.
 	</div>
 	<button class="button" style="width:64px" onclick="runCode()">RUN</button>
-	<button class="button" style="width:64px" onclick="stepFromGui()">STEP</button>
-	<button class="button" style="width:64px" onclick="reset()">RESET</button><br>
+	<!--<button class="button" style="width:64px" onclick="stepFromGui()">STEP</button> -->
+	<button class="button" style="width:64px" onclick="reset(); document.getElementById('code_area').innerHTML = code_reserved ">RESET</button><br>
 </div>

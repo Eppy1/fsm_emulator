@@ -1,5 +1,9 @@
 <?php
     function getCurrentUserId() {
+        if(!isset($_COOKIE['fsmemutoken'])) {
+            return '0';
+        }
+
         $id = '0';
         $connect=mysqli_connect('localhost', 'root', '', 'fsm');
 

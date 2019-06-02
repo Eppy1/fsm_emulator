@@ -74,7 +74,7 @@
 
 <?php
     if(getCurrentUserId() == '0') {
-        //NOP
+        echo '<a target="_blank" rel="noopener noreferrer"  href="/page_reg.php">Sign Up</a> or <a href="#" onclick="showAuth()">Sign In</a> to save your program!';
     } else {
         $text = "Save Code";
 

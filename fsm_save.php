@@ -35,7 +35,7 @@
             $qqq=mysqli_query($connect,"SELECT * FROM `programs` WHERE id='{$id}'");
             if($author == $qqq->fetch_assoc()['author']) {
 
-                $sql_q = "UPDATE `programs` SET data = '{$data}', last_change = '{$last_change}' WHERE id = '{$id}'";
+                $sql_q = "UPDATE `programs` SET name = '{$name}', data = '{$data}', last_change = '{$last_change}' WHERE id = '{$id}'";
                 $res=mysqli_query($connect, $sql_q);
             } else {
                 $sql_q = "INSERT INTO `programs` (name, fsm_type, data, author, last_change, rating, shared) VALUES ('{$name}', '{$fsm_type}', '{$data}', '{$author}', '{$last_change}', '{$rating}', '{$shared}')";

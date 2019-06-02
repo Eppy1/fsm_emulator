@@ -20,9 +20,11 @@ function psearch_addRow(id, name, type, rating, author, date, like) {
                 "<span style='color:#935171; font-size:large;'>&nbsp;" + rating + "</span>";
 
     switch(type) {
-        case 'turing':
-            type = 'Turing machine';
-            break;
+      case 'turing':    type = 'Turing machine'; break;
+      case 'post':      type = 'Post machine'; break;
+      case 'life':      type = 'Conway\'s Game of Life'; break;
+      case 'markov':    type = 'Markov algorithm'; break;
+      case 'brainfuck': type = 'Brainfuck'; break;
 
         default: break;
     }
