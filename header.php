@@ -4,7 +4,27 @@
 		<meta charset='utf-8'/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
+    <?php
+    
+    function getCurrentUserAvatar() {
+        if(!isset($_COOKIE['fsmemutoken'])) {
+            return '-';
+        }
 
+        $ava = '0';
+        $connect=mysqli_connect('localhost', 'root', '', 'fsm');
+        
+        $query=mysqli_query($connect,
+        "SELECT * FROM `users` 
+        WHERE token='{$_COOKIE['fsmemutoken']}'");
+
+        if(mysqli_num_rows($query) > 0) $ava = $query->fetch_assoc()['icon'];
+        
+        mysqli_close($connect);
+        return $ava;
+    }
+    
+    ?>
 	<body>
 
     <div class="header">
@@ -60,8 +80,12 @@
                 type: "POST",
                 data: $('#auth').serialize(),
                 success: function(response) {
-                    hideAuth();
-                    location.reload();
+                    if(response == 'Unknown user') {
+                        alert('Unknown user!');
+                    } else {
+                        hideAuth();
+                        location.reload();
+                    }
                 },
                 error: function(response) {
                     alert('lul');

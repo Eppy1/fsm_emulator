@@ -21,8 +21,9 @@
         echo "<a class='white_link' onclick='showAuth();'>SIGN IN&nbsp;</a><br>";
     } else {
         //echo "<center>";
+        $a = getCurrentUserAvatar();
         echo "<span class='white_link id=\"info_usrname\" onclick=\"window.location.href = 'person.php'\">" . $username . "&nbsp;";
-        echo "<img class=\"avatar\" align=\"middle\" src=\"ava_default.png\"/ onclick=\"window.location.href = 'person.php'\"></span>";
+        echo "<img class=\"avatar\" align=\"middle\" src=\"\\avas\\".$a.".png\"/ onclick=\"window.location.href = 'person.php'\"></span>";
         //echo "</center>";
     }
 ?>

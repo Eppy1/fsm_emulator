@@ -1,13 +1,11 @@
 function checkAllFilled() {
 	var fields = $('#reg').serializeArray();
 	var result = 'ok'
-
 	for(i=0; i<4; i++) {
 		if(fields[i].value.length == 0) {
 			result = 'no'
 		}
-	});
-
+	};
 	return result == 'ok';
 }
 
@@ -40,13 +38,20 @@ function showRegAlert(txt) {
 	document.getElementById('alert_txt').innerHTML = txt;
 }
 
-$('#reg').submit(function() {
+function checkEmailValid() {
+	var fields = $('#reg').serializeArray();
+	var email = fields[1]['value'];
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+	return re.test(String(email).toLowerCase());
+}
+
+function makeReg() {
 	if(!checkAllFilled())  { showRegAlert("All fields should be filled!"); return false;}
 	else if(!checkLoginLength()) { showRegAlert("The login length should be 4...20 chars"); return false;}
+	else if(!checkEmailValid()) { showRegAlert("The email is invalid"); return false;}
 	else if(!checkPasswordMatch()) { showRegAlert("Passwords do not match"); return false;}
 	else if(!checkPasswordLength()) { showRegAlert("Password is too simple"); return false;}
 	else if(!checkRulesConfirmation()) { showRegAlert("Confirm the rules"); return false;}
-
-	return true;
-});
+	else $('#reg').submit();
+};

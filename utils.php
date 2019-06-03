@@ -34,4 +34,19 @@
         mysqli_close($connect);
         return $name;
     }
+
+    function getCurrentAuthorName() {
+        $connect=mysqli_connect('localhost', 'root', '', 'fsm');
+        
+        $name = "-";
+        $query=mysqli_query($connect,
+        "SELECT * FROM `programs` 
+        WHERE id='{$_GET['id']}'");
+
+        if(mysqli_num_rows($query) > 0) $name = $query->fetch_assoc()['author'];
+        
+        mysqli_close($connect);
+        return $name;
+    }
+
 ?>

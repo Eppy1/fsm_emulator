@@ -7,7 +7,7 @@
     $query=mysqli_query($connect,"SELECT * FROM `users` WHERE MD5_login='{$md5}' OR MD5_email='{$md5}'");
     $num=mysqli_num_rows($query);
 
-    if($num == 0) echo 'Такого пользователя не знаем';
+    if($num == 0) echo 'Unknown user';
     else {
         $token = md5($login . round(microtime(true) * 1000));
         setcookie("fsmemutoken", $token, time()+604800*50);

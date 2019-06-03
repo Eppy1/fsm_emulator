@@ -13,7 +13,26 @@ function formatDate(date) {
     return monthNames[monthIndex] + ' ' + day;
   }
 
-function cmt_addComment(user, date, content) {
+function deleteComment(id) {
+    var c = confirm("Do you really want to delete this comment?");
+
+    if(c) {
+        $.ajax({
+            url : "comment.php",
+            type : "post",
+            async: true,
+            data: {func: 'delete', id: ''+id},
+            success : function(msg) {
+              cmt_update();
+            },
+            error: function() {
+        
+            }
+         });
+    }
+}
+
+function cmt_addComment(user, date, content, admin, id) {
     var d = (Date.now() - new Date(date).getTime()) / 1000 - 3600*3;
     var time_ref = 'Right now';
     
@@ -25,14 +44,47 @@ function cmt_addComment(user, date, content) {
 
     var table = document.getElementById("table_comment");
 
+    var ava = '0';
+    $.ajax({
+        url : "ava.php",
+        type : "get",
+        async: false,
+        data: {user: ''+user},
+        success : function(msg) {
+          ava = msg;
+        },
+        error: function() {
+    
+        }
+     });
+
     table.innerHTML += "<tr class=\"comment\">"+
-    "<td width='48px'><img class='ava' src='ava_default.png'/></td>"+
+    "<td width='48px'><img class='ava' src='\\avas\\"+ ava +".png'/></td>"+
     "<td><span class='nickname'>" + user + "</span>&nbsp;&nbsp;"+
     "<span class='time'>" + time_ref + "</span><br>"+
-    "<span class='expr'>" + content + "</span></td></tr>";
+    "<span class='expr'>" + content + "</span></td>" + (admin ? "<td style='width:40px;'><button onclick='deleteComment(" + id + ")' class='button'> &#10006; </button></td>" : "") + "</tr>";
 }
 
+function checkIsAdmin() {
+    var result = false;
+    $.ajax({
+      url : "is_amin.php",
+      type : "get",
+      async: false,
+      success : function(msg) {
+        result = msg == 'yes';
+      },
+      error: function() {
+  
+      }
+   });
+
+   return result;
+}
+  
 function cmt_update() {
+    var is_admin = checkIsAdmin();
+
     if(this.program_id == 0) {
         getElementById("comment_form").style.display = 'none';
         return;
@@ -61,8 +113,9 @@ function cmt_update() {
             var username = comment[0];
             var time_ref = comment[1];
             var content = comment[2];
+            var id = comment[3];
             //alert(content);
-            cmt_addComment(username, time_ref, content);
+            cmt_addComment(username, time_ref, content, is_admin, id);
         }
     });
 	   

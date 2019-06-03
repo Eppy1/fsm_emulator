@@ -46,7 +46,7 @@ machine</i> can be constructed equivalent to any non-deterministic one.
 <div width=640px>
 	<h2>Some programs:</h2><br>
 	<?php include 'psearch_form.php' ?>
-	<script>  psearch_update("1 ORDER BY rating DESC, last_change DESC"); </script>
+	<script>  psearch_update("1 ORDER BY last_change DESC, rating DESC"); </script>
 </div>
 <center>
 </div>

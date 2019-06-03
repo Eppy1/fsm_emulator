@@ -14,8 +14,9 @@
             $username=$row['login'];
             $email =  $row['email'];
  
-            echo "<h2><img class=\"avatar\" style=\"border: 1px solid #333\" src=\"ava_default.png\"/>";
+            echo "<h2><img class=\"avatar\" style=\"border: 1px solid #333\" src=\"\\avas\\".getCurrentUserAvatar().".png\"/>";
             echo "&nbsp;<span id=\"usrname\">".$username."</span></h2><br>";
+            echo "<span style='color:red;' id='admin_span'><br><br></span>";
             echo "email: " . $email;
         }
     }
@@ -29,6 +30,31 @@
 
 <h3> Your programs: </h3> <br>
 
+<script>
+
+function checkIsAdmin() {
+    var result = false;
+    $.ajax({
+      url : "is_amin.php",
+      type : "get",
+      async: true,
+      success : function(msg) {
+        result = msg == 'yes';
+      },
+      error: function() {
+  
+      }
+   });
+
+   return result;
+}
+
+if(checkIsAdmin()) {
+    document.getElementById("admin_span").innerText = "You are Admin!";
+} else document.getElementById("admin_span").style.display="none";
+
+</script>
+
 <div width=640px>
 		<?php include 'psearch_form.php' ?>
         <script> 
@@ -39,7 +65,7 @@
                 //alert(matches ? decodeURIComponent(matches[1]) : undefined);
                 return matches ? decodeURIComponent(matches[1]) : undefined;
             }
-            psearch_update("author = '" + document.getElementById("usrname").innerHTML+ "'");
+            psearch_update("author = '" + document.getElementById("usrname").innerHTML+ "'" + " ORDER BY last_change DESC, rating DESC");
         </script>
 	</div>
 

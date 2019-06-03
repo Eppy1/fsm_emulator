@@ -80,7 +80,11 @@
 
         if(isset($_GET['id']) && $_GET['id'] != '0') $text = "Save & Publish";
 
-        echo '<button class="button" onclick="saveCode()">Save this</button>';
+        if(!isset($_GET['id'])) {
+            echo '<button class="button" onclick="saveCode()">Save this</button>';
+        } else {
+            if(getCurrentAuthorName() == getCurrentUserName()) echo '<button class="button" onclick="saveCode()">Save this</button>';
+        }
     }
 ?>
 

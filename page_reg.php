@@ -121,6 +121,8 @@
 		Providence, we mutually pledge to each other our Lives, our Fortunes and our sacred Honor.
 	</div>
 
+	<script src="reg.js"></script>
+
 	<form id="reg" action="reg.php" method="post" name="reg">
 		<table style="border:none; font-size: large;">
 			<tr><td style="border:none; text-align:right;">Login<span style="color:#a03">*</span>:</td>
@@ -134,12 +136,10 @@
 		</table>
 		<p id='alert_txt'>...</p>
 		<p><label><input id="confirm" name="confirm" type="checkbox" value=""> I accept <a onclick="showRules();">The Rules</a></label><span style="color:#a03">*</span></p>
-
-		<input style="font-size: large; padding:8px" class="button" name="register" type="submit" value="Sign Up">
 	</form>
+		<button style="font-size: large; padding:8px; margin:auto;" class="button" onclick="makeReg()">Sign Up</button>
     </center>        
     
-	<script src="reg.js"></script>
 </div>
 
 

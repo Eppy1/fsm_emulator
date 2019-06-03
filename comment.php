@@ -22,10 +22,12 @@
             $user=$q1->fetch_assoc()['login'];
             $date=$row['date'];
             $content=$row['content'];
+            $id = $row['id'];
 
             $res .= $user;
             $res .= "||".$date;
-            $res .= "||".$content."==";
+            $res .= "||".$content;
+            $res .= "||".$id."==";
 
             $row = $q->fetch_assoc();
         }
@@ -45,5 +47,10 @@
         VALUES ('{$user_id}', '{$program_id}', '{$last_change}', '{$content}')");
     
         echo $user_id." ".$program_id." ".$content;
+    }
+
+    if($_POST['func'] == 'delete') {
+        $connect=mysqli_connect('localhost', 'root', '', 'fsm');
+        $q = mysqli_query($connect, "DELETE FROM `comments` WHERE id=".$_POST['id']);
     }
 ?>

@@ -235,6 +235,7 @@ function reset() {
 }
 
 function stop() {
+	generation = 0;
 	running = false;
 	clearInterval(runTimer);
 }
